@@ -114,9 +114,96 @@ app.all('*', (req, res) => {
     message: `Route ${req.originalUrl} not found`,
   });
 });
+// Doctor registration
+app.post('/form/doctors', async (req, res) => {
+    const { name, age, specialty, authentication_token, username, password } = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const credentialsColl = db.collection('CREDENTIALS');
 
+        const existing = await credentialsColl.findOne({ username });
+        if (existing) return res.json({ result: false, message: "Username already exists" });
+
+        await credentialsColl.insertOne({ username, password });
+        await db.collection('PROFILES DOCTORS').insertOne({ name, age, specialty, authentication_token });
+
+        res.json({ result: true, message: "Doctor registered successfully" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error during doctor registration");
+    }
+});
+
+// Patient registration
+app.post('/form/patients', async (req, res) => {
+    const { name, age, disease, username, password } = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const credentialsColl = db.collection('CREDENTIALS');
+
+        const existing = await credentialsColl.findOne({ username });
+        if (existing) return res.json({ result: false, message: "Username already exists" });
+
+        await credentialsColl.insertOne({ username, password });
+        await db.collection('PROFILES PATIENTS').insertOne({ name, age, disease, username });
+
+        res.json({ result: true, message: "Patient registered successfully" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error during patient registration");
+    }
+});
+
+// Sign-in route
+app.post('/signin', async (req, res) => {
+    const { username, password } = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const user = await db.collection('CREDENTIALS').findOne({ username, password });
+        if (!user) {
+            return res.status(401).json({ result: false, message: "Invalid credentials" });
+        }
+        res.json({ result: true, message: "Sign in successful", user });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error during sign in");
+    }
+});
+
+// Send message
+app.post('/messages', async (req, res) => {
+    const { message, sender, receiver, community, time } = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const result = await db.collection('MESSAGES').insertOne({ message, sender, receiver, community, time });
+        res.json({ message: "Message sent successfully", result });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error inserting message");
+    }
+});
+
+// Get messages for a community
+app.post('/messagebox', async (req, res) => {
+    const { community } = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const messages = await db.collection('MESSAGES').find({ community }).toArray();
+        res.json(messages);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error fetching messages");
+    }
+});
 // error handlers
 app.use(notFound);
 app.use(errorHandler);
+
+module.exports = app;
 
 module.exports = app;
