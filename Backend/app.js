@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 
 const authRoutes = require('./routes/authRoutes');
 const { errorHandler, notFound } = require('./Middlewares/Error');
+const { time } = require('console');
 
 const app = express();
 app.set('trust proxy', 1);
@@ -126,7 +127,7 @@ app.post('/form/doctors', async (req, res) => {
         if (existing) return res.json({ result: false, message: "Username already exists" });
 
         await credentialsColl.insertOne({ username, password });
-        await db.collection('PROFILES DOCTORS').insertOne({ name, age, specialty, authentication_token });
+        await db.collection('PROFILES DOCTORS').insertOne({ name, age, specialty, authentication_token ,username,community: "general"});
 
         res.json({ result: true, message: "Doctor registered successfully" });
     } catch (err) {
@@ -147,7 +148,7 @@ app.post('/form/patients', async (req, res) => {
         if (existing) return res.json({ result: false, message: "Username already exists" });
 
         await credentialsColl.insertOne({ username, password });
-        await db.collection('PROFILES PATIENTS').insertOne({ name, age, disease, username });
+        await db.collection('PROFILES PATIENTS').insertOne({ name, age, disease, username, community: "general" });
 
         res.json({ result: true, message: "Patient registered successfully" });
     } catch (err) {
@@ -174,12 +175,12 @@ app.post('/signin', async (req, res) => {
 });
 
 // Send message
-app.post('/messages', async (req, res) => {
-    const { message, sender, receiver, community, time } = req.body;
+app.post('/askquestion', async (req, res) => {
+    const { message, sender, community, type, time } = req.body;
     if (!mongoClient) return res.status(500).send("MongoDB not connected");
     try {
         const db = mongoClient.db('FIRSTDB');
-        const result = await db.collection('MESSAGES').insertOne({ message, sender, receiver, community, time });
+        const result = await db.collection('MESSAGES').insertOne({ message, sender, community, type, answers: "", time: new Date().toISOString() });
         res.json({ message: "Message sent successfully", result });
     } catch (err) {
         console.error(err);
@@ -200,10 +201,36 @@ app.post('/messagebox', async (req, res) => {
         res.status(500).send("Error fetching messages");
     }
 });
+app.post('/answer', async (req, res) => {
+    const { message_id, answer, doctor_username } = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const message = await db.collection('MESSAGES').findOne({ time: message_id });
+        message.answers = message.answers || [];
+        message.answers.push({ answer, doctor_username, time: new Date().toISOString() });
+        await db.collection('MESSAGES').updateOne({ time: message_id }, { $set: { answers: message.answers } });
+        res.json({ message: "Answer submitted successfully", result });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error inserting answer");
+    }
+});
+app.post('/getprofiles',async(req,res)=>{
+    const {username} = req.body;
+    if (!mongoClient) return res.status(500).send("MongoDB not connected");
+    try {
+        const db = mongoClient.db('FIRSTDB');
+        const profiles = await db.collection('PROFILES DOCTORS').find({ username:req.body.username }).toArray();
+        res.json(profiles);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error fetching profiles");
+    }
+});
+
 // error handlers
 app.use(notFound);
 app.use(errorHandler);
-
-module.exports = app;
 
 module.exports = app;
