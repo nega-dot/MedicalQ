@@ -83,7 +83,7 @@ const UserDashboard: React.FC = () => {
   const upcomingAppointments = [
     {
       id: 1,
-      doctor: "Dr. Sarah Johnson",
+      doctor: "Dr. Neha Yadav",
       specialty: "Cardiology",
       date: "Tomorrow",
       time: "10:30 AM",
