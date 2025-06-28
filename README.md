@@ -30,8 +30,8 @@ MedicalQ/
 │   │   ├── 📂 layout/         # Layout components
 │   │   │   └── 📄 Header.tsx
 │   │   ├── 📂 contexts/       # Context providers
-│   │   │   ├── 📄 AuthContext.tsx
-│   │   │   └── 📄 App.tsx
+│   │   │   └── 📄 AuthContext.tsx
+│   │   ├── 📄 App.tsx
 │   │   ├── 📄 index.css       # Global styles
 │   │   ├── 📄 main.tsx        # Main entry point
 │   │   └── 📄 vite-env.d.ts   # Vite environment types
@@ -62,7 +62,8 @@ MedicalQ/
 │   │   │   │   └── 📄 UserDashboard.tsx
 │   │   │   ├── 📂 home/      # Homepage components
 │   │   │   │   ├── 📄 Features.tsx
-│   │   │   │   └── 📄 Hero.tsx
+│   │   │   │   ├── 📄 Hero.tsx
+|   |   |   |   └── 📄 Stats.tsx
 │   │   │   └── 📂 layout/    # Layout components
 │   │   │       └── 📄 Header.tsx
 │   │   ├── 📂 config/        # Configuration files
@@ -107,10 +108,12 @@ MedicalQ/
 │
 ├── 📄 .gitignore              # Git ignore rules
 ├── 📄 README.md               # Project documentation
-├── 📄 tailwind.config.js      # Tailwind CSS configuration
-├── 📄 package.json            # Root dependencies
-└── 📄 package-lock.json
+└── 📄 tailwind.config.js      # Tailwind CSS configuration
 ```
+
+//├── 📄 package.json            # Root dependencies
+//└── 📄 package-lock.json
+//```
 
 ## 🔄 Application Flow
 
