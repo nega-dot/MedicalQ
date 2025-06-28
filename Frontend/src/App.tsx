@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
-import Header from './components/Layout/Header';
-import Hero from './components/Home/Hero';
-import Features from './components/Home/Features';
-import Stats from './components/Home/Stats';
+import Header from './components/layout/Header';
+import Hero from './components/home/Hero';
+import Features from './components/home/Features';
+import Stats from './components/home/Stats';
 import SpecialistDoctors from './components/doctors/SpecialistDoctors';
 import CommunityPlatform from './components/community/CommunityPlatform';
 import CommunityAds from './components/community/CommunityAds';
-import Footer from './components/Layout/Footer'; // Changed from './components/layout/Footer'
-import AuthModal from './components/Auth/AuthModal';
-import UserDashboard from './components/Dashboard/UserDashboard';
+import Footer from './components/layout/Footer'; // Changed from './components/layout/Footer'
+import AuthModal from './components/auth/AuthModal';
+import UserDashboard from './components/dashboard/UserDashboard';
 
 const HomePage: React.FC = () => {
   const [authModal, setAuthModal] = useState<{ isOpen: boolean; type: 'login' | 'register' }>({
