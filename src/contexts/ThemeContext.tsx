@@ -18,7 +18,7 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     // Check localStorage first, then system preference
-    const saved = localStorage.getItem('theme');
+    const saved = localStorage.getItem('medicalq-theme');
     if (saved) {
       return saved === 'dark';
     }
@@ -27,20 +27,38 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     // Apply theme to document
+    const root = document.documentElement;
+    
     if (isDark) {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
       document.body.style.backgroundColor = '#0f172a';
+      document.body.style.color = '#ffffff';
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
       document.body.style.backgroundColor = '#ffffff';
+      document.body.style.color = '#1f2937';
     }
     
     // Save to localStorage
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('medicalq-theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
+  // Listen for system theme changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      const saved = localStorage.getItem('medicalq-theme');
+      if (!saved) {
+        setIsDark(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    setIsDark(prev => !prev);
   };
 
   return (

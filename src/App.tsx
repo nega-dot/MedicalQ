@@ -36,8 +36,8 @@ const HomePage: React.FC = () => {
       <main>
         <Hero onGetStarted={() => handleAuthModal('register')} />
         
-        {/* Add spacing between sections */}
-        <div className="py-8" />
+        {/* Add proper spacing between sections */}
+        <div className="py-12" />
         
         {/* Verified Doctors Section */}
         <div id="verified-doctors">
@@ -45,26 +45,33 @@ const HomePage: React.FC = () => {
         </div>
         
         {/* Add spacing */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Features Section */}
         <Features />
         
         {/* Add spacing */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Stats Section */}
         <Stats />
         
         {/* Add spacing */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Community Platform */}
         <CommunityPlatform />
         
-        {/* Community Ads Sidebar */}
+        {/* Community Ads Sidebar - Fixed position for desktop */}
         <div className="fixed right-4 top-1/2 transform -translate-y-1/2 w-80 z-40 hidden xl:block">
           <CommunityAds />
+        </div>
+        
+        {/* Mobile Community Ads - Show below community platform on mobile */}
+        <div className="xl:hidden py-8">
+          <div className="max-w-md mx-auto px-4">
+            <CommunityAds />
+          </div>
         </div>
       </main>
       

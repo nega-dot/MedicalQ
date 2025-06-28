@@ -20,7 +20,10 @@ import {
   Star,
   Clock,
   TrendingUp,
-  Award
+  Award,
+  AlertCircle,
+  CheckCircle,
+  Zap
 } from 'lucide-react';
 
 const CommunityPlatform: React.FC = () => {
@@ -29,26 +32,26 @@ const CommunityPlatform: React.FC = () => {
   const [sortBy, setSortBy] = useState('recent');
 
   const categories = [
-    { id: 'all', name: 'All Communities', icon: Users, color: 'text-gray-600', count: 50 },
-    { id: 'cardiology', name: 'Heart Disease', icon: Heart, color: 'text-red-500', count: 12 },
-    { id: 'oncology', name: 'Cancer Support', icon: Activity, color: 'text-purple-500', count: 8 },
-    { id: 'neurology', name: 'Brain & Nervous', icon: Brain, color: 'text-blue-500', count: 6 },
-    { id: 'orthopedics', name: 'Bone & Joint', icon: Bone, color: 'text-green-500', count: 9 },
-    { id: 'diabetes', name: 'Diabetes Care', icon: Pill, color: 'text-orange-500', count: 7 },
-    { id: 'mental-health', name: 'Mental Health', icon: Brain, color: 'text-indigo-500', count: 11 },
-    { id: 'pediatrics', name: 'Child Health', icon: Baby, color: 'text-pink-500', count: 5 },
-    { id: 'ophthalmology', name: 'Eye Care', icon: Eye, color: 'text-cyan-500', count: 4 }
+    { id: 'all', name: 'All Communities', icon: Users, color: 'text-gray-600', count: 50, description: 'Browse all health communities' },
+    { id: 'cardiology', name: 'Heart Disease', icon: Heart, color: 'text-red-500', count: 12, description: 'Cardiac conditions & treatments' },
+    { id: 'oncology', name: 'Cancer Support', icon: Activity, color: 'text-purple-500', count: 8, description: 'Cancer care & support' },
+    { id: 'neurology', name: 'Brain & Nervous', icon: Brain, color: 'text-blue-500', count: 6, description: 'Neurological conditions' },
+    { id: 'orthopedics', name: 'Bone & Joint', icon: Bone, color: 'text-green-500', count: 9, description: 'Orthopedic care' },
+    { id: 'diabetes', name: 'Diabetes Care', icon: Pill, color: 'text-orange-500', count: 7, description: 'Diabetes management' },
+    { id: 'mental-health', name: 'Mental Health', icon: Brain, color: 'text-indigo-500', count: 11, description: 'Mental wellness support' },
+    { id: 'pediatrics', name: 'Child Health', icon: Baby, color: 'text-pink-500', count: 5, description: 'Pediatric care' },
+    { id: 'ophthalmology', name: 'Eye Care', icon: Eye, color: 'text-cyan-500', count: 4, description: 'Vision & eye health' }
   ];
 
   const questions = [
     {
       id: 1,
       title: 'Post-cardiac surgery recovery timeline and precautions',
-      content: 'I had bypass surgery 2 weeks ago. What should I expect in terms of recovery timeline? What activities should I avoid?',
+      content: 'I had bypass surgery 2 weeks ago. What should I expect in terms of recovery timeline? What activities should I avoid? My doctor mentioned 6-8 weeks, but I\'m experiencing some chest discomfort.',
       author: 'John Smith',
       authorRole: 'Patient',
       category: 'cardiology',
-      tags: ['surgery', 'recovery', 'cardiac'],
+      tags: ['surgery', 'recovery', 'cardiac', 'bypass'],
       timestamp: '2 hours ago',
       upvotes: 15,
       downvotes: 1,
@@ -56,16 +59,17 @@ const CommunityPlatform: React.FC = () => {
       views: 234,
       isAnswered: true,
       doctorReplied: true,
-      priority: 'high'
+      priority: 'high',
+      isUrgent: false
     },
     {
       id: 2,
       title: 'Managing chemotherapy side effects - nausea and fatigue',
-      content: 'Starting my third cycle of chemo next week. The nausea and fatigue are getting worse. Any tips from fellow patients or doctors?',
+      content: 'Starting my third cycle of chemo next week. The nausea and fatigue are getting worse with each cycle. Any tips from fellow patients or doctors? Currently taking ondansetron but it\'s not helping much.',
       author: 'Sarah Johnson',
       authorRole: 'Patient',
       category: 'oncology',
-      tags: ['chemotherapy', 'side-effects', 'nausea'],
+      tags: ['chemotherapy', 'side-effects', 'nausea', 'fatigue'],
       timestamp: '4 hours ago',
       upvotes: 23,
       downvotes: 0,
@@ -73,33 +77,35 @@ const CommunityPlatform: React.FC = () => {
       views: 456,
       isAnswered: true,
       doctorReplied: true,
-      priority: 'medium'
+      priority: 'medium',
+      isUrgent: false
     },
     {
       id: 3,
-      title: 'Migraine frequency increasing - when to see neurologist?',
-      content: 'My migraines have increased from once a month to 3-4 times per week. Should I be concerned? When should I see a specialist?',
+      title: 'Sudden severe headache with vision changes - URGENT',
+      content: 'Experiencing sudden severe headache with blurred vision and sensitivity to light. This started 30 minutes ago. Should I go to emergency? No history of migraines.',
       author: 'Mike Wilson',
       authorRole: 'Patient',
       category: 'neurology',
-      tags: ['migraine', 'frequency', 'specialist'],
-      timestamp: '6 hours ago',
-      upvotes: 18,
-      downvotes: 2,
-      replies: 6,
-      views: 189,
-      isAnswered: false,
-      doctorReplied: false,
-      priority: 'medium'
+      tags: ['headache', 'vision', 'emergency', 'urgent'],
+      timestamp: '30 minutes ago',
+      upvotes: 8,
+      downvotes: 0,
+      replies: 3,
+      views: 89,
+      isAnswered: true,
+      doctorReplied: true,
+      priority: 'high',
+      isUrgent: true
     },
     {
       id: 4,
       title: 'Knee replacement surgery - what to expect?',
-      content: 'Scheduled for knee replacement next month. First-time surgery patient. What should I prepare for? Recovery tips?',
+      content: 'Scheduled for total knee replacement next month. First-time surgery patient. What should I prepare for? Recovery tips? How long before I can walk normally?',
       author: 'Linda Davis',
       authorRole: 'Patient',
       category: 'orthopedics',
-      tags: ['knee-replacement', 'surgery', 'preparation'],
+      tags: ['knee-replacement', 'surgery', 'preparation', 'recovery'],
       timestamp: '8 hours ago',
       upvotes: 31,
       downvotes: 1,
@@ -107,16 +113,17 @@ const CommunityPlatform: React.FC = () => {
       views: 567,
       isAnswered: true,
       doctorReplied: true,
-      priority: 'low'
+      priority: 'low',
+      isUrgent: false
     },
     {
       id: 5,
       title: 'Blood sugar spikes after meals - normal or concerning?',
-      content: 'Type 2 diabetic for 3 years. Recently noticing blood sugar spikes to 200+ after meals despite medication. Is this normal?',
+      content: 'Type 2 diabetic for 3 years. Recently noticing blood sugar spikes to 200+ after meals despite medication. Is this normal? Should I adjust my diet further?',
       author: 'Robert Chen',
       authorRole: 'Patient',
       category: 'diabetes',
-      tags: ['blood-sugar', 'spikes', 'medication'],
+      tags: ['blood-sugar', 'spikes', 'medication', 'diet'],
       timestamp: '1 day ago',
       upvotes: 27,
       downvotes: 3,
@@ -124,7 +131,8 @@ const CommunityPlatform: React.FC = () => {
       views: 345,
       isAnswered: true,
       doctorReplied: true,
-      priority: 'high'
+      priority: 'high',
+      isUrgent: false
     }
   ];
 
@@ -136,12 +144,23 @@ const CommunityPlatform: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const getPriorityColor = (priority: string) => {
+  const getPriorityColor = (priority: string, isUrgent: boolean) => {
+    if (isUrgent) return 'text-red-600 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';
     switch (priority) {
-      case 'high': return 'text-red-500 bg-red-50 dark:bg-red-900/20';
-      case 'medium': return 'text-yellow-500 bg-yellow-50 dark:bg-yellow-900/20';
-      case 'low': return 'text-green-500 bg-green-50 dark:bg-green-900/20';
-      default: return 'text-gray-500 bg-gray-50 dark:bg-gray-900/20';
+      case 'high': return 'text-orange-600 bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800';
+      case 'medium': return 'text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800';
+      case 'low': return 'text-green-600 bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800';
+      default: return 'text-gray-600 bg-gray-50 dark:bg-gray-900/20 border-gray-200 dark:border-gray-800';
+    }
+  };
+
+  const getPriorityIcon = (priority: string, isUrgent: boolean) => {
+    if (isUrgent) return <Zap className="h-3 w-3" />;
+    switch (priority) {
+      case 'high': return <AlertCircle className="h-3 w-3" />;
+      case 'medium': return <Clock className="h-3 w-3" />;
+      case 'low': return <CheckCircle className="h-3 w-3" />;
+      default: return null;
     }
   };
 
@@ -181,7 +200,7 @@ const CommunityPlatform: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white dark:bg-dark-surface rounded-2xl p-6 shadow-lg sticky top-24"
+              className="bg-white dark:bg-dark-surface rounded-2xl p-6 shadow-lg sticky top-24 border border-gray-200 dark:border-dark-border"
             >
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
                 Health Communities
@@ -203,7 +222,14 @@ const CommunityPlatform: React.FC = () => {
                       <category.icon className={`h-4 w-4 ${
                         selectedCategory === category.id ? 'text-white' : category.color
                       }`} />
-                      <span className="text-sm font-medium">{category.name}</span>
+                      <div className="text-left">
+                        <div className="text-sm font-medium">{category.name}</div>
+                        <div className={`text-xs ${
+                          selectedCategory === category.id ? 'text-white/80' : 'text-gray-500 dark:text-gray-400'
+                        }`}>
+                          {category.description}
+                        </div>
+                      </div>
                     </div>
                     <span className={`text-xs px-2 py-1 rounded-full ${
                       selectedCategory === category.id 
@@ -218,7 +244,10 @@ const CommunityPlatform: React.FC = () => {
 
               {/* Quick Stats */}
               <div className="mt-8 p-4 bg-gradient-to-br from-medical-teal/10 to-medical-blue/10 rounded-lg border border-medical-teal/20">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Community Stats</h4>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                  <TrendingUp className="h-4 w-4 mr-2" />
+                  Community Stats
+                </h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-400">Total Members</span>
@@ -232,7 +261,25 @@ const CommunityPlatform: React.FC = () => {
                     <span className="text-gray-600 dark:text-gray-400">Expert Doctors</span>
                     <span className="font-semibold text-medical-green">523</span>
                   </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Avg Response Time</span>
+                    <span className="font-semibold text-purple-500">< 2 hours</span>
+                  </div>
                 </div>
+              </div>
+
+              {/* Emergency Notice */}
+              <div className="mt-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                <h4 className="font-semibold text-red-800 dark:text-red-400 mb-2 flex items-center">
+                  <Zap className="h-4 w-4 mr-2" />
+                  Medical Emergency?
+                </h4>
+                <p className="text-xs text-red-700 dark:text-red-300 mb-3">
+                  For urgent medical situations, call emergency services immediately.
+                </p>
+                <button className="w-full py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition-colors">
+                  Call Emergency: 911
+                </button>
               </div>
             </motion.div>
           </div>
@@ -244,7 +291,7 @@ const CommunityPlatform: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white dark:bg-dark-surface rounded-2xl p-6 shadow-lg mb-8"
+              className="bg-white dark:bg-dark-surface rounded-2xl p-6 shadow-lg mb-8 border border-gray-200 dark:border-dark-border"
             >
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
@@ -270,6 +317,7 @@ const CommunityPlatform: React.FC = () => {
                       <option value="popular">Most Popular</option>
                       <option value="answered">Answered First</option>
                       <option value="unanswered">Unanswered First</option>
+                      <option value="urgent">Urgent First</option>
                     </select>
                   </div>
                   
@@ -303,8 +351,14 @@ const CommunityPlatform: React.FC = () => {
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-medical-teal transition-colors cursor-pointer">
                           {question.title}
                         </h3>
+                        {question.isUrgent && (
+                          <span className="px-2 py-1 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400 text-xs font-medium rounded-full border border-red-200 dark:border-red-800 flex items-center space-x-1">
+                            <Zap className="h-3 w-3" />
+                            <span>URGENT</span>
+                          </span>
+                        )}
                         {question.isAnswered && (
-                          <span className="px-2 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-medium rounded-full">
+                          <span className="px-2 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-medium rounded-full border border-green-200 dark:border-green-800">
                             Answered
                           </span>
                         )}
@@ -316,7 +370,7 @@ const CommunityPlatform: React.FC = () => {
                         )}
                       </div>
                       
-                      <p className="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                      <p className="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2 leading-relaxed">
                         {question.content}
                       </p>
                       
@@ -325,7 +379,7 @@ const CommunityPlatform: React.FC = () => {
                         {question.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-1 bg-gray-100 dark:bg-dark-card text-gray-600 dark:text-gray-400 text-xs rounded-full"
+                            className="px-2 py-1 bg-gray-100 dark:bg-dark-card text-gray-600 dark:text-gray-400 text-xs rounded-full hover:bg-medical-teal/10 hover:text-medical-teal cursor-pointer transition-colors"
                           >
                             #{tag}
                           </span>
@@ -333,20 +387,23 @@ const CommunityPlatform: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className={`px-2 py-1 rounded-full text-xs font-medium ${getPriorityColor(question.priority)}`}>
-                      {question.priority}
+                    <div className={`px-2 py-1 rounded-full text-xs font-medium border flex items-center space-x-1 ${getPriorityColor(question.priority, question.isUrgent)}`}>
+                      {getPriorityIcon(question.priority, question.isUrgent)}
+                      <span>{question.isUrgent ? 'URGENT' : question.priority}</span>
                     </div>
                   </div>
 
                   {/* Question Meta */}
-                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
                     <div className="flex items-center space-x-4">
-                      <div className="flex items-center space-x-1">
+                      <div className="flex items-center space-x-2">
                         <div className="w-6 h-6 bg-medical-teal rounded-full flex items-center justify-center text-white text-xs font-bold">
                           {question.author.charAt(0)}
                         </div>
-                        <span>{question.author}</span>
-                        <span className="text-xs">({question.authorRole})</span>
+                        <span className="font-medium">{question.author}</span>
+                        <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-dark-card rounded-full">
+                          {question.authorRole}
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Clock className="h-3 w-3" />
@@ -356,7 +413,7 @@ const CommunityPlatform: React.FC = () => {
                   </div>
 
                   {/* Question Stats */}
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-dark-border">
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-dark-border">
                     <div className="flex items-center space-x-6">
                       <div className="flex items-center space-x-2">
                         <div className="flex items-center space-x-1">

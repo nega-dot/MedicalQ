@@ -22,7 +22,13 @@ import {
   BookOpen,
   CreditCard,
   Video,
-  ChevronRight
+  ChevronRight,
+  Ambulance,
+  UserCheck,
+  Search,
+  MessageSquare,
+  TrendingUp,
+  Languages
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -37,16 +43,16 @@ const Footer: React.FC = () => {
         { name: 'Medical Departments', href: '/departments', icon: Building },
         { name: 'Lab Results', href: '/lab-results', icon: FileText },
         { name: 'Patient Guide', href: '/patient-guide', icon: BookOpen },
-        { name: 'Emergency Services', href: '/emergency', icon: Phone }
+        { name: 'Emergency Services', href: '/emergency', icon: Ambulance }
       ]
     },
     {
       title: 'For Medical Professionals',
       links: [
-        { name: 'Research', href: '/research', icon: Award },
+        { name: 'Research & Publications', href: '/research', icon: Award },
         { name: 'Career Opportunities', href: '/careers', icon: Users },
         { name: 'Academic Programs', href: '/academics', icon: BookOpen },
-        { name: "Doctor's Portal", href: '/doctor-portal', icon: Stethoscope },
+        { name: "Doctor's Portal", href: '/doctor-portal', icon: UserCheck },
         { name: 'Medical Resources', href: '/resources', icon: FileText },
         { name: 'Continuing Education', href: '/education', icon: Award }
       ]
@@ -56,7 +62,7 @@ const Footer: React.FC = () => {
       links: [
         { name: 'About Us', href: '/about', icon: Building },
         { name: 'News & Events', href: '/news', icon: FileText },
-        { name: 'Community', href: '/community', icon: Users },
+        { name: 'Health Community', href: '/community', icon: MessageSquare },
         { name: 'Privacy Policy', href: '/privacy', icon: Shield },
         { name: 'Terms of Service', href: '/terms', icon: FileText },
         { name: 'Contact Us', href: '/contact', icon: Mail }
@@ -76,19 +82,28 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-blue-500' },
-    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-blue-400' },
-    { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-pink-500' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
-    { name: 'YouTube', icon: Youtube, href: '#', color: 'hover:text-red-500' }
+    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/sgrh', color: 'hover:text-blue-500' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/sgrh', color: 'hover:text-blue-400' },
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/sgrh', color: 'hover:text-pink-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/sgrh', color: 'hover:text-blue-600' },
+    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/sgrh', color: 'hover:text-red-500' }
   ];
 
   const contactInfo = [
-    { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000' },
-    { icon: Mail, text: 'info@sgrh.com', href: 'mailto:info@sgrh.com' },
-    { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: '#' },
-    { icon: Clock, text: '24/7 Emergency Services', href: '#' }
+    { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000', label: 'Main Hospital' },
+    { icon: Ambulance, text: '+91-11-2575-1111', href: 'tel:+911125751111', label: 'Emergency' },
+    { icon: Mail, text: 'info@sgrh.com', href: 'mailto:info@sgrh.com', label: 'General Inquiries' },
+    { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: 'https://maps.google.com', label: 'Location' }
   ];
+
+  const certifications = [
+    { name: 'NABH Accredited', icon: Award },
+    { name: 'ISO 9001:2015', icon: Shield },
+    { name: 'JCI Standards', icon: Globe },
+    { name: 'NABL Certified', icon: Award }
+  ];
+
+  const languages = ['English', 'Hindi', 'Punjabi', 'Urdu'];
 
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white">
@@ -105,7 +120,7 @@ const Footer: React.FC = () => {
               {/* Logo */}
               <div className="flex items-center space-x-3 mb-6">
                 <div className="relative">
-                  <Heart className="h-10 w-10 text-medical-teal" fill="currentColor" />
+                  <Heart className="h-12 w-12 text-medical-teal" fill="currentColor" />
                   <motion.div
                     className="absolute -top-1 -right-1 w-4 h-4 bg-medical-blue rounded-full"
                     animate={{ scale: [1, 1.2, 1] }}
@@ -116,19 +131,19 @@ const Footer: React.FC = () => {
                   <h3 className="text-2xl font-bold bg-medical-gradient bg-clip-text text-transparent">
                     Sir Ganga Ram Hospital
                   </h3>
-                  <p className="text-sm text-gray-400">Excellence in Healthcare</p>
+                  <p className="text-sm text-gray-400">Excellence in Healthcare Since 1951</p>
                 </div>
               </div>
 
               {/* Description */}
               <p className="text-gray-300 mb-6 leading-relaxed">
                 A premier healthcare institution committed to providing world-class medical care 
-                with compassion, innovation, and excellence. Serving the community for over decades 
+                with compassion, innovation, and excellence. Serving the community for over 70 years 
                 with state-of-the-art facilities and expert medical professionals.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
                 {contactInfo.map((item, index) => (
                   <motion.a
                     key={index}
@@ -136,29 +151,59 @@ const Footer: React.FC = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="flex items-center space-x-3 text-gray-300 hover:text-medical-teal transition-colors group"
+                    className="flex items-center space-x-3 text-gray-300 hover:text-medical-teal transition-colors group p-2 rounded-lg hover:bg-gray-800"
                   >
                     <item.icon className="h-4 w-4 text-medical-teal group-hover:scale-110 transition-transform" />
-                    <span className="text-sm">{item.text}</span>
+                    <div>
+                      <span className="text-sm font-medium">{item.text}</span>
+                      <div className="text-xs text-gray-400">{item.label}</div>
+                    </div>
                   </motion.a>
                 ))}
               </div>
 
+              {/* Operating Hours */}
+              <div className="mb-6 p-4 bg-gray-800 rounded-lg">
+                <h4 className="font-semibold mb-2 flex items-center">
+                  <Clock className="h-4 w-4 mr-2 text-medical-teal" />
+                  Operating Hours
+                </h4>
+                <div className="text-sm text-gray-300 space-y-1">
+                  <div className="flex justify-between">
+                    <span>OPD:</span>
+                    <span>8:00 AM - 8:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Emergency:</span>
+                    <span className="text-medical-teal font-semibold">24/7</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Lab Services:</span>
+                    <span>6:00 AM - 10:00 PM</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Social Links */}
-              <div className="flex items-center space-x-4 mt-6">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.href}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    whileHover={{ scale: 1.2 }}
-                    className={`p-2 bg-gray-800 rounded-full text-gray-400 ${social.color} transition-all duration-200 hover:bg-gray-700`}
-                  >
-                    <social.icon className="h-4 w-4" />
-                  </motion.a>
-                ))}
+              <div>
+                <h4 className="font-semibold mb-3">Follow Us</h4>
+                <div className="flex items-center space-x-3">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      whileHover={{ scale: 1.2 }}
+                      className={`p-3 bg-gray-800 rounded-full text-gray-400 ${social.color} transition-all duration-200 hover:bg-gray-700`}
+                    >
+                      <social.icon className="h-4 w-4" />
+                    </motion.a>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -171,7 +216,7 @@ const Footer: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: sectionIndex * 0.1, duration: 0.6 }}
               >
-                <h4 className="text-lg font-semibold mb-6 text-white">
+                <h4 className="text-lg font-semibold mb-6 text-white border-b border-gray-700 pb-2">
                   {section.title}
                 </h4>
                 <ul className="space-y-3">
@@ -184,7 +229,7 @@ const Footer: React.FC = () => {
                     >
                       <a
                         href={link.href}
-                        className="flex items-center space-x-2 text-gray-400 hover:text-medical-teal transition-colors group text-sm"
+                        className="flex items-center space-x-2 text-gray-400 hover:text-medical-teal transition-colors group text-sm py-1"
                       >
                         <link.icon className="h-3 w-3 text-medical-teal/60 group-hover:text-medical-teal group-hover:scale-110 transition-all" />
                         <span className="group-hover:translate-x-1 transition-transform">
@@ -200,16 +245,19 @@ const Footer: React.FC = () => {
           ))}
         </div>
 
-        {/* Newsletter Subscription */}
+        {/* Newsletter & Language Selector */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
           className="mt-12 pt-8 border-t border-gray-800"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div>
-              <h4 className="text-xl font-semibold mb-2">Stay Updated</h4>
+              <h4 className="text-xl font-semibold mb-2 flex items-center">
+                <TrendingUp className="h-5 w-5 mr-2 text-medical-teal" />
+                Stay Updated
+              </h4>
               <p className="text-gray-400">
                 Subscribe to our newsletter for health tips, medical updates, and hospital news.
               </p>
@@ -228,6 +276,47 @@ const Footer: React.FC = () => {
                 Subscribe
               </motion.button>
             </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-2 flex items-center">
+                <Languages className="h-4 w-4 mr-2 text-medical-teal" />
+                Languages Available
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {languages.map((lang) => (
+                  <span
+                    key={lang}
+                    className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded-full hover:bg-gray-700 cursor-pointer transition-colors"
+                  >
+                    {lang}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Certifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-8 pt-6 border-t border-gray-800"
+        >
+          <h4 className="text-lg font-semibold mb-4 text-center">Accreditations & Certifications</h4>
+          <div className="flex flex-wrap justify-center gap-6">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={cert.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center space-x-2 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <cert.icon className="h-4 w-4 text-medical-teal" />
+                <span className="text-sm text-gray-300">{cert.name}</span>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
@@ -244,10 +333,12 @@ const Footer: React.FC = () => {
                 <a href="/terms" className="hover:text-medical-teal transition-colors">Terms of Service</a>
                 <span>•</span>
                 <a href="/sitemap" className="hover:text-medical-teal transition-colors">Sitemap</a>
+                <span>•</span>
+                <a href="/accessibility" className="hover:text-medical-teal transition-colors">Accessibility</a>
               </div>
             </div>
             
-            <div className="flex items-center space-x-4 text-sm text-gray-400">
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
               <div className="flex items-center space-x-2">
                 <Award className="h-4 w-4 text-medical-teal" />
                 <span>NABH Accredited</span>
@@ -256,6 +347,20 @@ const Footer: React.FC = () => {
                 <Shield className="h-4 w-4 text-medical-teal" />
                 <span>ISO Certified</span>
               </div>
+              <div className="flex items-center space-x-2">
+                <Globe className="h-4 w-4 text-medical-teal" />
+                <span>JCI Standards</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Emergency Notice */}
+          <div className="mt-4 pt-4 border-t border-gray-800 text-center">
+            <div className="bg-red-900/20 border border-red-800/30 rounded-lg p-3">
+              <p className="text-red-400 text-sm font-medium flex items-center justify-center">
+                <Ambulance className="h-4 w-4 mr-2" />
+                For Medical Emergencies, Call: +91-11-2575-1111 (Available 24/7)
+              </p>
             </div>
           </div>
         </div>
