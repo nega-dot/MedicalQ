@@ -98,16 +98,16 @@ const CommunityPlatform: React.FC = () => {
         content: 'I\'ve been experiencing severe headaches daily for the past week. They usually start in the morning and worsen throughout the day. I\'ve tried over-the-counter pain relievers but they provide minimal relief.',
         author: {
           id: 'user1',
-          name: 'Sarah Johnson',
+          name: 'Aarushi Yadav',
           avatar: undefined,
           isVerified: false
         },
         category: 'general-health',
         tags: ['headache', 'pain', 'chronic'],
-        createdAt: new Date('2024-01-15T10:30:00Z'),
+        createdAt: new Date('2025-06-28T10:30:00Z'),
         upvotes: 12,
         answers: 3,
-        views: 156,
+        views: 1569,
         isAnswered: true,
         urgency: 'medium'
       },
@@ -117,16 +117,16 @@ const CommunityPlatform: React.FC = () => {
         content: 'I work at a desk all day and have been dealing with lower back pain. What are some effective exercises or stretches I can do to alleviate this pain?',
         author: {
           id: 'user2',
-          name: 'Mike Chen',
+          name: 'Abhimanyu Sharma',
           avatar: undefined,
           isVerified: false
         },
         category: 'orthopedics',
         tags: ['back-pain', 'exercise', 'workplace'],
-        createdAt: new Date('2024-01-14T15:45:00Z'),
-        upvotes: 8,
-        answers: 5,
-        views: 203,
+        createdAt: new Date('2025-06-27T15:45:00Z'),
+        upvotes: 320,
+        answers: 56,
+        views: 2038,
         isAnswered: true,
         urgency: 'low'
       },
@@ -142,10 +142,10 @@ const CommunityPlatform: React.FC = () => {
         },
         category: 'emergency',
         tags: ['chest-pain', 'breathing', 'urgent'],
-        createdAt: new Date('2024-01-16T08:15:00Z'),
-        upvotes: 25,
-        answers: 1,
-        views: 89,
+        createdAt: new Date('2025-06-28T08:15:00Z'),
+        upvotes: 981,
+        answers: 198,
+        views: 9782,
         isAnswered: false,
         urgency: 'high'
       }
