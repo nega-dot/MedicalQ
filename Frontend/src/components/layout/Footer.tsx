@@ -129,9 +129,9 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold bg-medical-gradient bg-clip-text text-transparent">
-                    Sir Ganga Ram Hospital
+                    MedicalQ
                   </h3>
-                  <p className="text-sm text-gray-400">Excellence in Healthcare Since 1951</p>
+                  <p className="text-sm text-gray-400">Excellence in Health Since 1951</p>
                 </div>
               </div>
 
@@ -326,7 +326,7 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
-              <p>© {currentYear} Sir Ganga Ram Hospital. All rights reserved.</p>
+              <p>© {currentYear} MedicalQ. All rights reserved.</p>
               <div className="flex items-center space-x-4">
                 <a href="/privacy" className="hover:text-medical-teal transition-colors">Privacy Policy</a>
                 <span>•</span>
