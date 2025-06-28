@@ -53,7 +53,7 @@ MedicalQ/
 │   ├── 📄 tsconfig.node.json  # TypeScript Node configuration
 │   └── 📄 vite.config.ts      # Vite configuration
 │
-├── 📂 MedicalQ/               # Frontend React Application
+├── 📂 Frontend/               # Frontend React Application
 │   ├── 📂 src/               # React source files
 │   │   ├── 📂 components/    # Reusable UI components
 │   │   │   ├── 📂 auth/      # Authentication components
