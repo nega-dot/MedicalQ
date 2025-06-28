@@ -21,12 +21,15 @@ const SpecialistDoctors: React.FC = () => {
         'Recipient of National Excellence Award in Cardiology',
         'Former Head of Cardiology at AIIMS'
       ],
-      image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=400',
+      // <img 
+      // src="https://media.istockphoto.com/id/2190085073/photo/smiling-indian-doctor-wearing-white-coat-and-stethoscope-and-stylish-eyeglasses-with-crossed.jpg?s=2048x2048&w=is&k=20&c=IARlljW5VoDfMrSMGebmBHCdfOoMfYQc4bc0zQM8RVo="
+      //  />
+      image: 'https://media.istockphoto.com/id/2190085073/photo/smiling-indian-doctor-wearing-white-coat-and-stethoscope-and-stylish-eyeglasses-with-crossed.jpg?s=2048x2048&w=is&k=20&c=IARlljW5VoDfMrSMGebmBHCdfOoMfYQc4bc0zQM8RVo=',
       rating: 4.9,
       patients: 5000,
-      location: 'Sir Ganga Ram Hospital, New Delhi',
+      location: 'Lucknow, Uttar Pradesh',
       phone: '+91-11-2575-0000',
-      email: 'dr.rajesh@sgrh.com',
+      email: 'dr.rajesh@medicalq.com',
       testimonial: {
         text: 'Dr. Kumar saved my life with his expertise in cardiac surgery. His compassionate care and advanced treatment gave me a second chance at life. The minimally invasive procedure he performed reduced my recovery time significantly.',
         patient: 'Mrs. Priya Sharma, Age 52'
@@ -52,9 +55,9 @@ const SpecialistDoctors: React.FC = () => {
       image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.8,
       patients: 3500,
-      location: 'Sir Ganga Ram Hospital, New Delhi',
+      location: 'Bhopal, Madhya Pradesh',
       phone: '+91-11-2575-0001',
-      email: 'dr.meera@sgrh.com',
+      email: 'dr.meera@medicalq.com',
       testimonial: {
         text: 'Dr. Gupta\'s innovative treatment approach helped me beat stage 3 breast cancer. Her dedication, expertise, and the personalized treatment plan she created gave me hope when I had none.',
         patient: 'Mr. Amit Singh, Age 45'
@@ -80,9 +83,9 @@ const SpecialistDoctors: React.FC = () => {
       image: 'https://images.pexels.com/photos/5452274/pexels-photo-5452274.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.9,
       patients: 4200,
-      location: 'Sir Ganga Ram Hospital, New Delhi',
+      location: 'New Delhi, Delhi',
       phone: '+91-11-2575-0002',
-      email: 'dr.vikram@sgrh.com',
+      email: 'dr.vikram@medicalq.com',
       testimonial: {
         text: 'Dr. Malhotra\'s expertise in neurology is unmatched. He successfully treated my complex brain aneurysm with precision and care. His post-operative follow-up was exceptional.',
         patient: 'Ms. Kavita Jain, Age 38'
@@ -108,9 +111,9 @@ const SpecialistDoctors: React.FC = () => {
       image: 'https://images.pexels.com/photos/5452207/pexels-photo-5452207.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.7,
       patients: 3800,
-      location: 'Sir Ganga Ram Hospital, New Delhi',
+      location: 'Chennai, Tamil Nadu',
       phone: '+91-11-2575-0003',
-      email: 'dr.sunita@sgrh.com',
+      email: 'dr.sunita@medicalq.com',
       testimonial: {
         text: 'Dr. Agarwal\'s robotic knee replacement surgery gave me my mobility back completely. Her skill, precision, and the advanced techniques she used exceeded all my expectations.',
         patient: 'Mr. Ravi Khanna, Age 62'
