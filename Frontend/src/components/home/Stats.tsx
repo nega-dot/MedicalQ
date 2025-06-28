@@ -139,17 +139,17 @@ const Stats: React.FC = () => {
     {
       icon: TrendingUp,
       title: "Fastest Growing",
-      description: "Health platform in 2024"
+      description: "Health platform in 2025"
     },
     {
       icon: Award,
       title: "Medical Excellence",
-      description: "Award winner 2023"
+      description: "Award winner 2024"
     },
     {
       icon: HeartHandshake,
       title: "Trusted Partner",
-      description: "500+ hospitals network"
+      description: "5000+ hospitals network"
     }
   ];
 
