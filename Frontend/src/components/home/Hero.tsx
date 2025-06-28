@@ -154,13 +154,13 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
           >
-            <span className="text-gray-900 dark:text-white">Excellence in </span>
+            <span className="text-gray-900 dark:text-white">Smart  </span>
             <span className="bg-medical-gradient bg-clip-text text-transparent">
-              Healthcare
+              Health
             </span>
             <br />
-            <span className="text-gray-900 dark:text-white">Since </span>
-            <span className="text-medical-blue">1951</span>
+            <span className="text-gray-900 dark:text-white">Starts </span>
+            <span className="text-medical-blue"> Here</span>
           </motion.h1>
 
           <motion.p
@@ -169,8 +169,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
           >
-            Sir Ganga Ram Hospital - A premier healthcare institution providing world-class 
-            medical care with compassion, innovation, and excellence for over 70 years.
+            A Modern Hub for Reliable Medical Knowledge, Powered by Doctors & AI
           </motion.p>
 
           <motion.div
