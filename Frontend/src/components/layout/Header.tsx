@@ -12,7 +12,9 @@ import {
   LogOut,
   Shield,
   Moon,
-  Sun
+  Sun,
+  Phone,
+  Users
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -36,6 +38,10 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
     { icon: Shield, label: 'Privacy', href: '/privacy' },
   ];
 
+  const handleEmergencyCall = () => {
+    window.open('tel:+91-11-2575-1111', '_self');
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-xl border-b border-gray-200 dark:border-dark-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,10 +61,10 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
             </motion.div>
             <div>
               <span className="text-xl font-bold bg-medical-gradient bg-clip-text text-transparent">
-                Sir Ganga Ram Hospital
+                MedicalQ
               </span>
               <div className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
-                Excellence in Healthcare
+                Smart Health Starts Here
               </div>
             </div>
           </Link>
@@ -96,6 +102,32 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
                 </motion.div>
               )}
             </div>
+          </div>
+
+          {/* Emergency & Communities Section */}
+          <div className="hidden lg:flex items-center space-x-3 mx-6">
+            {/* Emergency Number */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleEmergencyCall}
+              className="flex items-center space-x-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <Phone className="h-4 w-4" />
+              <span className="text-sm">Emergency</span>
+            </motion.button>
+
+            {/* Explore Communities */}
+            <Link to="/communities">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center space-x-2 px-4 py-2 bg-medical-teal hover:bg-medical-teal/90 text-white rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                <Users className="h-4 w-4" />
+                <span className="text-sm">Communities</span>
+              </motion.button>
+            </Link>
           </div>
 
           {/* Right Section */}
@@ -241,6 +273,28 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
                   className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal"
                 />
               </div>
+              
+              {/* Mobile Emergency & Communities */}
+              <div className="flex space-x-3">
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleEmergencyCall}
+                  className="flex-1 flex items-center justify-center space-x-2 py-2 bg-red-500 text-white rounded-lg font-medium"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span>Emergency</span>
+                </motion.button>
+                <Link to="/communities" className="flex-1">
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full flex items-center justify-center space-x-2 py-2 bg-medical-teal text-white rounded-lg font-medium"
+                  >
+                    <Users className="h-4 w-4" />
+                    <span>Communities</span>
+                  </motion.button>
+                </Link>
+              </div>
+
               {!user && (
                 <div className="flex space-x-3">
                   <button
