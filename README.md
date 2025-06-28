@@ -4,116 +4,76 @@
 
 ```
 MedicalQ/
-├── 📂 Backend/                 # Node.js/Express API Server
-│   ├── 📂 Config/             # Configuration files
-│   │   └── 📄 Firebase.js     # Firebase configuration
-│   ├── 📂 Controllers/        # Business logic handlers
+├── 📂 backend/                    # Node.js/Express API Server
+│   ├── 📂 config/                # Configuration files
+│   │   └── 📄 firebase.js        # Firebase configuration
+│   ├── 📂 controllers/           # Business logic handlers
 │   │   └── 📄 authController.js
-│   ├── 📂 Middlewares/        # Custom middleware functions
-│   │   ├── 📄 Auth.js         # Authentication middleware
-│   │   ├── 📄 Error.js        # Error handling middleware
+│   ├── 📂 middleware/            # Custom middleware functions
+│   │   ├── 📄 auth.js           # Authentication middleware
+│   │   ├── 📄 error.js          # Error handling middleware
 │   │   └── 📄 adminMiddleware.js
-│   ├── 📂 Models/             # Data models & schemas
-│   │   └── 📄 User.js         # User model
-│   ├── 📂 Routes/             # API route definitions
-│   │   └── 📄 authRoutes.js   # Authentication routes
-│   ├── 📂 src/                # Source utilities
-│   │   ├── 📂 components/     # Backend components
-│   │   │   ├── 📂 auth/       # Authentication components
-│   │   │   │   └── 📄 AuthModel.tsx
-│   │   │   ├── 📂 dashboard/  # Dashboard components
-│   │   │   │   └── 📄 UserDashboard.tsx
-│   │   │   └── 📂 home/       # Home page components
-│   │   │       ├── 📄 Features.tsx
-│   │   │       ├── 📄 Hero.tsx
-│   │   │       └── 📄 Stats.tsx
-│   │   ├── 📂 layout/         # Layout components
-│   │   │   └── 📄 Header.tsx
-│   │   ├── 📂 contexts/       # Context providers
-│   │   │   └── 📄 AuthContext.tsx
-│   │   ├── 📄 App.tsx
-│   │   ├── 📄 index.css       # Global styles
-│   │   ├── 📄 main.tsx        # Main entry point
-│   │   └── 📄 vite-env.d.ts   # Vite environment types
-│   ├── 📂 utils/              # Utility functions
-│   │   └── 📄 logger.js       # Logging utilities
-│   ├── 📄 .gitignore          # Git ignore rules
-│   ├── 📄 LICENSE             # License file
-│   ├── 📄 README.md           # Backend documentation
-│   ├── 📄 app.js              # Express app configuration
-│   ├── 📄 eslint.config.js    # ESLint configuration
-│   ├── 📄 index.html          # HTML template
-│   ├── 📄 package-lock.json   # Dependency lock file
-│   ├── 📄 package.json        # Backend dependencies
-│   ├── 📄 postcss.config.js   # PostCSS configuration
-│   ├── 📄 server.js           # Server entry point
-│   ├── 📄 tailwind.config.js  # Tailwind CSS configuration
-│   ├── 📄 tsconfig.app.json   # TypeScript app configuration
-│   ├── 📄 tsconfig.json       # TypeScript configuration
-│   ├── 📄 tsconfig.node.json  # TypeScript Node configuration
-│   └── 📄 vite.config.ts      # Vite configuration
+│   ├── 📂 models/               # Data models & schemas
+│   │   └── 📄 User.js           # User model
+│   ├── 📂 routes/               # API route definitions
+│   │   └── 📄 authRoutes.js     # Authentication routes
+│   ├── 📂 utils/                # Utility functions
+│   │   └── 📄 logger.js         # Logging utilities
+│   ├── 📄 .gitignore           # Backend git ignore
+│   ├── 📄 package.json         # Backend dependencies only
+│   ├── 📄 package-lock.json    # Backend lock file
+│   ├── 📄 server.js            # Server entry point
+│   ├── 📄 app.js               # Express app configuration
+│   └── 📄 README.md            # Backend documentation
 │
-├── 📂 Frontend/               # Frontend React Application
-│   ├── 📂 src/               # React source files
-│   │   ├── 📂 components/    # Reusable UI components
-│   │   │   ├── 📂 auth/      # Authentication components
-│   │   │   │   └── 📄 AuthModel.tsx
-│   │   │   ├── 📂 dashboard/ # Dashboard components
+├── 📂 frontend/                   # React Application
+│   ├── 📂 public/               # Static assets
+│   │   └── 📄 index.html        # HTML template
+│   ├── 📂 src/                  # React source files
+│   │   ├── 📂 components/       # Reusable UI components
+│   │   │   ├── 📂 auth/         # Authentication components
+│   │   │   │   └── 📄 AuthModal.tsx
+│   │   │   ├── 📂 dashboard/    # Dashboard components
 │   │   │   │   └── 📄 UserDashboard.tsx
-│   │   │   ├── 📂 home/      # Homepage components
+│   │   │   ├── 📂 home/         # Homepage components
 │   │   │   │   ├── 📄 Features.tsx
 │   │   │   │   ├── 📄 Hero.tsx
-|   |   |   |   └── 📄 Stats.tsx
-│   │   │   └── 📂 layout/    # Layout components
-│   │   │       └── 📄 Header.tsx
-│   │   ├── 📂 config/        # Configuration files
-│   │   │   ├── 📄 api.ts     # API configuration
-│   │   │   └── 📄 firebase.ts # Firebase configuration
-│   │   ├── 📂 contexts/      # React Context providers
-│   │   │   └── 📄 AuthContext.tsx
-│   │   ├── 📄 App.tsx        # Main React component
-│   │   ├── 📄 index.css      # Global styles
-│   │   ├── 📄 main.tsx       # React entry point
-│   │   └── 📄 vite-env.d.ts  # Vite environment types
-│   ├── 📄 .eslint.config.js  # ESLint configuration
-│   ├── 📄 .gitignore         # Git ignore rules
-│   ├── 📄 LICENSE            # License file
-│   ├── 📄 README.md          # Frontend documentation
-│   ├── 📄 index.html         # HTML template
-│   ├── 📄 package-lock.json  # Dependency lock file
-│   ├── 📄 package.json       # Frontend dependencies
-│   ├── 📄 postcss.config.js  # PostCSS configuration
-│   ├── 📄 tailwind.config.js # Tailwind CSS configuration
-│   ├── 📄 tsconfig.app.json  # TypeScript app configuration
-│   ├── 📄 tsconfig.json      # TypeScript configuration
-│   ├── 📄 tsconfig.node.json # TypeScript Node configuration
-│   └── 📄 vite.config.ts     # Vite configuration
+│   │   │   │   └── 📄 Stats.tsx
+│   │   │   ├── 📂 layout/       # Layout components
+│   │   │   │   ├── 📄 Header.tsx
+│   │   │   │   └── 📄 Footer.tsx
+│   │   │   ├── 📂 community/    # Community features
+│   │   │   │   ├── 📄 CommunityAds.tsx
+│   │   │   │   └── 📄 CommunityPlatform.tsx
+│   │   │   └── 📂 doctors/      # Doctor-related components
+│   │   │       ├── 📄 DoctorPopup.tsx
+│   │   │       └── 📄 SpecialistDoctors.tsx
+│   │   ├── 📂 contexts/         # React Context providers
+│   │   │   ├── 📄 AuthContext.tsx
+│   │   │   └── 📄 ThemeContext.tsx
+│   │   ├── 📂 config/           # Frontend configuration
+│   │   │   ├── 📄 api.ts        # API configuration
+│   │   │   └── 📄 firebase.ts   # Firebase configuration
+│   │   ├── 📄 App.tsx           # Main React component
+│   │   ├── 📄 main.tsx          # React entry point
+│   │   ├── 📄 index.css         # Global styles
+│   │   └── 📄 vite-env.d.ts     # Vite environment types
+│   ├── 📄 .gitignore           # Frontend git ignore
+│   ├── 📄 package.json         # Frontend dependencies
+│   ├── 📄 package-lock.json    # Frontend lock file
+│   ├── 📄 vite.config.ts       # Vite configuration
+│   ├── 📄 tsconfig.json        # TypeScript configuration
+│   ├── 📄 tsconfig.app.json    # TypeScript app configuration
+│   ├── 📄 tsconfig.node.json   # TypeScript Node configuration
+│   ├── 📄 tailwind.config.js   # Tailwind CSS configuration
+│   ├── 📄 postcss.config.js    # PostCSS configuration
+│   ├── 📄 eslint.config.js     # ESLint configuration
+│   └── 📄 README.md            # Frontend documentation
 │
-├── 📂 src/                    # Original React Frontend Application (Legacy)
-│   ├── 📂 components/         # Reusable UI components
-│   │   ├── 📂 community/      # Community features
-│   │   │   ├── 📄 CommunityAds.tsx
-│   │   │   └── 📄 CommunityPlatform.tsx
-│   │   ├── 📂 doctors/        # Doctor-related components
-│   │   │   ├── 📄 DoctorPopup.tsx
-│   │   │   └── 📄 SpecialistDoctors.tsx
-│   │   ├── 📂 home/           # Homepage components
-│   │   │   └── 📄 Hero.tsx
-│   │   └── 📂 layout/         # Layout components
-│   │       ├── 📄 Footer.tsx
-│   │       └── 📄 Header.tsx
-│   ├── 📂 contexts/           # React Context providers
-│   │   └── 📄 ThemeContext.tsx
-│   └── 📄 App.tsx             # Main React component
-│
-├── 📄 .gitignore              # Git ignore rules
-├── 📄 README.md               # Project documentation
-└── 📄 tailwind.config.js      # Tailwind CSS configuration
+├── 📄 .gitignore                 # Root git ignore
+├── 📄 README.md                  # Main project documentation
+└── 📄 LICENSE                    # License file
 ```
-
-//├── 📄 package.json            # Root dependencies
-//└── 📄 package-lock.json
-//```
 
 ## 🔄 Application Flow
 
