@@ -25,7 +25,7 @@ import {
   ChevronRight,
   Ambulance,
   UserCheck,
-  Search,
+  // Search,
   MessageSquare,
   TrendingUp,
   Languages

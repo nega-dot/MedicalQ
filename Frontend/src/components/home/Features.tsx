@@ -9,7 +9,7 @@ import {
   Brain, 
   Heart,
   MessageSquare,
-  Star,
+  // Star,
   CheckCircle,
   Zap,
   Lock,
