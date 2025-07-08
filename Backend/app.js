@@ -34,7 +34,7 @@ app.use(helmet({
     crossOriginEmbedderPolicy: false,
 }));
 
-// CORS setup
+// RS setup
 const corsOptions = {
     origin(origin, callback) {
         const allowed = ['http://localhost:5173', 'http://localhost:3001', 'https://medicalq.vercel.app'];
