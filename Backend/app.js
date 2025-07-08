@@ -37,7 +37,7 @@ app.use(helmet({
 // CORS setup
 const corsOptions = {
     origin(origin, callback) {
-        const allowed = ['http://localhost:5173', 'http://localhost:3001'];
+        const allowed = ['http://localhost:5173', 'http://localhost:3001', 'https://medicalq.vercel.app'];
         if (!origin) return callback(null, true); // Allow non-browser clients
         if (allowed.includes(origin)) return callback(null, true);
         callback(new Error('Not allowed by CORS'));
