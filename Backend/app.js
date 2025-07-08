@@ -9,7 +9,7 @@ const hpp = require('hpp');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
 
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./Routes/authRoutes');
 const { errorHandler, notFound } = require('./Middlewares/Error');
 
 // Mongoose models
