@@ -1,5 +1,5 @@
 const { auth } = require('../Config/firebase');
-const User = require('../models/User');
+const User = require('../Models/User');
 
 class AuthController {
   // Register a new user

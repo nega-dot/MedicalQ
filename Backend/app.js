@@ -13,10 +13,10 @@ const authRoutes = require('./Routes/authRoutes');
 const { errorHandler, notFound } = require('./Middlewares/Error');
 
 // Mongoose models
-const Credential = require('./models/Credential');
-const DoctorProfile = require('./models/DoctorProfile');
-const PatientProfile = require('./models/PatientProfile');
-const Message = require('./models/Message');
+const Credential = require('./Models/Credential');
+const DoctorProfile = require('./Models/DoctorProfile');
+const PatientProfile = require('./Models/PatientProfile');
+const Message = require('./Models/Message');
 
 const app = express();
 app.set('trust proxy', 1);
