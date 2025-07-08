@@ -1,4 +1,4 @@
-const { auth } = require('../Config/firebase');
+const { auth } = require('../Config/Firebase');
 const User = require('../Models/User');
 
 class AuthController {
