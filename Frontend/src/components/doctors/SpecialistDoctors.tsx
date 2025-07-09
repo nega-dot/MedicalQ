@@ -21,10 +21,8 @@ const SpecialistDoctors: React.FC = () => {
         'Recipient of National Excellence Award in Cardiology',
         'Former Head of Cardiology at AIIMS'
       ],
-      // <img 
-      // src="https://media.istockphoto.com/id/2190085073/photo/smiling-indian-doctor-wearing-white-coat-and-stethoscope-and-stylish-eyeglasses-with-crossed.jpg?s=2048x2048&w=is&k=20&c=IARlljW5VoDfMrSMGebmBHCdfOoMfYQc4bc0zQM8RVo="
-      //  />
-      image: 'https://media.istockphoto.com/id/2190085073/photo/smiling-indian-doctor-wearing-white-coat-and-stethoscope-and-stylish-eyeglasses-with-crossed.jpg?s=2048x2048&w=is&k=20&c=IARlljW5VoDfMrSMGebmBHCdfOoMfYQc4bc0zQM8RVo=',
+      
+      image: 'src/assets/male_doc1.jpg',
       rating: 4.9,
       patients: 5000,
       location: 'Lucknow, Uttar Pradesh',
@@ -52,7 +50,7 @@ const SpecialistDoctors: React.FC = () => {
         'International fellowship in Cancer Research at Johns Hopkins',
         'Published 40+ papers in top oncology journals'
       ],
-      image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/assets/female_doc1.jpg',
       rating: 4.8,
       patients: 3500,
       location: 'Bhopal, Madhya Pradesh',
@@ -80,7 +78,7 @@ const SpecialistDoctors: React.FC = () => {
         'Head of Neuroscience Department for 8 years',
         'International recognition for stroke treatment protocols'
       ],
-      image: 'https://images.pexels.com/photos/5452274/pexels-photo-5452274.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/assets/male_doc2.jpg',
       rating: 4.9,
       patients: 4200,
       location: 'New Delhi, Delhi',
@@ -108,7 +106,7 @@ const SpecialistDoctors: React.FC = () => {
         'Consultant for national sports teams and athletes',
         'Pioneer in robotic-assisted joint replacement'
       ],
-      image: 'https://images.pexels.com/photos/5452207/pexels-photo-5452207.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'src/assets/female_doc2.jpg',
       rating: 4.7,
       patients: 3800,
       location: 'Chennai, Tamil Nadu',
