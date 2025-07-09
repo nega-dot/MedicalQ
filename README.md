@@ -14,6 +14,10 @@ MedicalQ/
 │   │   ├── 📄 error.js          # Error handling middleware
 │   │   └── 📄 adminMiddleware.js
 │   ├── 📂 models/               # Data models & schemas
+│   │   ├── 📄 Credential.js
+│   │   ├── 📄 DoctorProfile.js
+│   │   ├── 📄 Message.js
+│   │   ├── 📄 PatientProfile.js
 │   │   └── 📄 User.js           # User model
 │   ├── 📂 routes/               # API route definitions
 │   │   └── 📄 authRoutes.js     # Authentication routes
@@ -24,12 +28,18 @@ MedicalQ/
 │   ├── 📄 package-lock.json    # Backend lock file
 │   ├── 📄 server.js            # Server entry point
 │   ├── 📄 app.js               # Express app configuration
+│   ├── 📄 .env
 │   └── 📄 README.md            # Backend documentation
 │
 ├── 📂 frontend/                   # React Application
 │   ├── 📂 public/               # Static assets
-│   │   └── 📄 index.html        # HTML template
+│   │   ├── 📄 logo.png
 │   ├── 📂 src/                  # React source files
+│   │   ├── 📂 assets/
+│   |   │   ├── 📄
+│   │   |   ├── 📄
+│   │   |   ├── 📄
+│   |   │   └── 📄
 │   │   ├── 📂 components/       # Reusable UI components
 │   │   │   ├── 📂 auth/         # Authentication components
 │   │   │   │   └── 📄 AuthModal.tsx
@@ -59,6 +69,7 @@ MedicalQ/
 │   │   ├── 📄 index.css         # Global styles
 │   │   └── 📄 vite-env.d.ts     # Vite environment types
 │   ├── 📄 .gitignore           # Frontend git ignore
+│   ├── 📄 index.html           # HTML template
 │   ├── 📄 package.json         # Frontend dependencies
 │   ├── 📄 package-lock.json    # Frontend lock file
 │   ├── 📄 vite.config.ts       # Vite configuration
