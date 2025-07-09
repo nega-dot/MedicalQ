@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Heart, 
-  Phone, 
+  // Phone, 
   Mail, 
-  MapPin, 
+  // MapPin, 
   Calendar, 
   Users, 
   Stethoscope, 
@@ -83,24 +83,24 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/medicalq', color: 'hover:text-blue-500' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/medicalq', color: 'hover:text-blue-400' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/medicalq', color: 'hover:text-blue-400' },
     { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/medicalq', color: 'hover:text-pink-500' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/medicalq', color: 'hover:text-blue-600' },
     { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/medicalq', color: 'hover:text-red-500' }
   ];
 
   const contactInfo = [
-    { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000', label: 'Main Hospital' },
+    // { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000', label: 'Main' },
     { icon: Ambulance, text: '+91-11-6969-6969', href: 'tel:+911169696969', label: 'Emergency' },
     { icon: Mail, text: 'info@medicalq.com', href: 'mailto:info@medicalq.com', label: 'General Inquiries' },
-    { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: 'https://maps.google.com', label: 'Location' }
+    // { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: 'https://maps.google.com', label: 'Location' }
   ];
 
   const certifications = [
     { name: 'NABH Accredited', icon: Award },
-    { name: 'ISO 9001:2015', icon: Shield },
-    { name: 'JCI Standards', icon: Globe },
-    { name: 'NABL Certified', icon: Award }
+    { name: 'ISO 9001:2025 Certified', icon: Shield },
+    { name: 'HIPAA & GDPR Compliant', icon: Globe },
+    { name: 'NABL Approved Labs', icon: Award }
   ];
 
   const languages = ['English', 'Hindi', 'Punjabi', 'Urdu'];
@@ -131,15 +131,13 @@ const Footer: React.FC = () => {
                   <h3 className="text-2xl font-bold bg-medical-gradient bg-clip-text text-transparent">
                     MedicalQ
                   </h3>
-                  <p className="text-sm text-gray-400">Excellence in Health Since 1951</p>
+                  <p className="text-sm text-gray-400">Smart Health Starts Here</p>
                 </div>
               </div>
 
               {/* Description */}
               <p className="text-gray-300 mb-6 leading-relaxed">
-                A premier healthcare institution committed to providing world-class medical care 
-                with compassion, innovation, and excellence. Serving the community for over 70 years 
-                with state-of-the-art facilities and expert medical professionals.
+                A Modern Hub for Reliable Medical Knowledge, Powered by Doctors & AI.
               </p>
 
               {/* Contact Info */}
@@ -325,20 +323,23 @@ const Footer: React.FC = () => {
       <div className="border-t border-gray-800 bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
-              <p>© {currentYear} MedicalQ. All rights reserved.</p>
-              <div className="flex items-center space-x-4">
-                <a href="/privacy" className="hover:text-medical-teal transition-colors">Privacy Policy</a>
-                <span>•</span>
-                <a href="/terms" className="hover:text-medical-teal transition-colors">Terms of Service</a>
-                <span>•</span>
-                <a href="/sitemap" className="hover:text-medical-teal transition-colors">Sitemap</a>
-                <span>•</span>
-                <a href="/accessibility" className="hover:text-medical-teal transition-colors">Accessibility</a>
+          <div className="w-full flex justify-center">
+              <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
+                <p>© {currentYear} MedicalQ. All rights reserved.</p>
+                <div className="flex flex-wrap justify-center items-center space-x-4">
+                  <a href="/privacy" className="hover:text-medical-teal transition-colors">Privacy Policy</a>
+                  <span>•</span>
+                  <a href="/terms" className="hover:text-medical-teal transition-colors">Terms of Service</a>
+                  <span>•</span>
+                  <a href="/sitemap" className="hover:text-medical-teal transition-colors">Sitemap</a>
+                  <span>•</span>
+                  <a href="/accessibility" className="hover:text-medical-teal transition-colors">Accessibility</a>
+                </div>
               </div>
             </div>
-            
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
+
+
+            {/* <div className="flex items-center space-x-6 text-sm text-gray-400">
               <div className="flex items-center space-x-2">
                 <Award className="h-4 w-4 text-medical-teal" />
                 <span>NABH Accredited</span>
@@ -349,9 +350,10 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Globe className="h-4 w-4 text-medical-teal" />
-                <span>JCI Standards</span>
+                <span>HIPAA & GDPR Compliant</span>
               </div>
-            </div>
+            </div>  */}
+            
           </div>
           
           {/* Emergency Notice */}
