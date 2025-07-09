@@ -22,7 +22,7 @@ const SpecialistDoctors: React.FC = () => {
         'Former Head of Cardiology at AIIMS'
       ],
       
-      image: 'src/assets/male_doc1.jpg',
+      image: '/assets/male_doc1.jpg',
       rating: 4.9,
       patients: 5000,
       location: 'Lucknow, Uttar Pradesh',
@@ -50,7 +50,7 @@ const SpecialistDoctors: React.FC = () => {
         'International fellowship in Cancer Research at Johns Hopkins',
         'Published 40+ papers in top oncology journals'
       ],
-      image: 'src/assets/female_doc1.jpg',
+      image: '/assets/female_doc1.jpg',
       rating: 4.8,
       patients: 3500,
       location: 'Bhopal, Madhya Pradesh',
@@ -78,7 +78,7 @@ const SpecialistDoctors: React.FC = () => {
         'Head of Neuroscience Department for 8 years',
         'International recognition for stroke treatment protocols'
       ],
-      image: 'src/assets/male_doc2.jpg',
+      image: '/assets/male_doc2.jpg',
       rating: 4.9,
       patients: 4200,
       location: 'New Delhi, Delhi',
@@ -106,7 +106,7 @@ const SpecialistDoctors: React.FC = () => {
         'Consultant for national sports teams and athletes',
         'Pioneer in robotic-assisted joint replacement'
       ],
-      image: 'src/assets/female_doc2.jpg',
+      image: '/assets/female_doc2.jpg',
       rating: 4.7,
       patients: 3800,
       location: 'Chennai, Tamil Nadu',
