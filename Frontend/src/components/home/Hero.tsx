@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import CommunityAds from '../community/CommunityAds.tsx';
+
 import { 
   Heart, 
   Users, 

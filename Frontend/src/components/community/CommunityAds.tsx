@@ -191,16 +191,16 @@ const CommunityAds: React.FC = () => {
       </div>
 
       {/* Quick Community Stats */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
         className="bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-200 dark:border-dark-border shadow-sm"
-      >
-        <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-center">
+      > */}
+        {/* <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-center">
           Community Highlights
-        </h4>
-        <div className="grid grid-cols-2 gap-4 text-center">
+        </h4> */}
+        {/* <div className="grid grid-cols-2 gap-4 text-center">
           <div className="p-2">
             <div className="text-2xl font-bold text-medical-teal">50+</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Active Communities</div>
@@ -217,8 +217,8 @@ const CommunityAds: React.FC = () => {
             <div className="text-2xl font-bold text-purple-500">24/7</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Support</div>
           </div>
-        </div>
-      </motion.div>
+        </div> */}
+      {/* </motion.div> */}
 
       {/* Trending Questions */}
       <motion.div

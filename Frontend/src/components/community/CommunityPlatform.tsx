@@ -105,8 +105,8 @@ const CommunityPlatform: React.FC = () => {
         category: 'general-health',
         tags: ['headache', 'pain', 'chronic'],
         createdAt: new Date('2025-06-28T10:30:00Z'),
-        upvotes: 12,
-        answers: 3,
+        upvotes: 96,
+        answers: 23,
         views: 1569,
         isAnswered: true,
         urgency: 'medium'
