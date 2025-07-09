@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
   ];
 
   const handleEmergencyCall = () => {
-    window.open('tel:+91-11-2575-1111', '_self');
+    window.open('tel:+91-11-6969-6969', '_self');
   };
 
   return (
