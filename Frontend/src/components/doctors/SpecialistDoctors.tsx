@@ -26,7 +26,7 @@ const SpecialistDoctors: React.FC = () => {
       rating: 4.9,
       patients: 5000,
       location: 'Lucknow, Uttar Pradesh',
-      phone: '+91-11-2575-0000',
+      phone: '+91-11-2575-6969',
       email: 'dr.rajesh@medicalq.com',
       testimonial: {
         text: 'Dr. Kumar saved my life with his expertise in cardiac surgery. His compassionate care and advanced treatment gave me a second chance at life. The minimally invasive procedure he performed reduced my recovery time significantly.',
@@ -54,7 +54,7 @@ const SpecialistDoctors: React.FC = () => {
       rating: 4.8,
       patients: 3500,
       location: 'Bhopal, Madhya Pradesh',
-      phone: '+91-11-2575-0001',
+      phone: '+91-11-2575-6991',
       email: 'dr.meera@medicalq.com',
       testimonial: {
         text: 'Dr. Gupta\'s innovative treatment approach helped me beat stage 3 breast cancer. Her dedication, expertise, and the personalized treatment plan she created gave me hope when I had none.',
@@ -82,7 +82,7 @@ const SpecialistDoctors: React.FC = () => {
       rating: 4.9,
       patients: 4200,
       location: 'New Delhi, Delhi',
-      phone: '+91-11-2575-0002',
+      phone: '+91-11-2575-6992',
       email: 'dr.vikram@medicalq.com',
       testimonial: {
         text: 'Dr. Malhotra\'s expertise in neurology is unmatched. He successfully treated my complex brain aneurysm with precision and care. His post-operative follow-up was exceptional.',
@@ -110,7 +110,7 @@ const SpecialistDoctors: React.FC = () => {
       rating: 4.7,
       patients: 3800,
       location: 'Chennai, Tamil Nadu',
-      phone: '+91-11-2575-0003',
+      phone: '+91-11-2575-6993',
       email: 'dr.sunita@medicalq.com',
       testimonial: {
         text: 'Dr. Agarwal\'s robotic knee replacement surgery gave me my mobility back completely. Her skill, precision, and the advanced techniques she used exceeded all my expectations.',
