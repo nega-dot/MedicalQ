@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
 
     try {
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-      const response = await fetch(`${API_BASE_URL}/api/newsletter/subscribe`, {
+      const response = await fetch(`${API_BASE_URL}/newsletter/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
