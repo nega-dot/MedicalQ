@@ -106,7 +106,7 @@ const AppContent: React.FC = () => {
       <div className="min-h-screen bg-white dark:bg-slate-900 flex items-center justify-center"> {/* Changed dark:bg-dark-bg */}
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-teal-500/30 border-t-teal-500 rounded-full animate-spin mx-auto mb-4" /> {/* Changed border colors */}
-          <p className="text-gray-600 dark:text-gray-400">Loading Sir Ganga Ram Hospital...</p>
+          <p className="text-gray-600 dark:text-gray-400">Loading MedicalQ...</p>
         </div>
       </div>
     );
