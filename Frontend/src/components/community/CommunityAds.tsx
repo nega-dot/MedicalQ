@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, MessageSquare, TrendingUp, ArrowRight, Heart, Brain, Activity, Bone, Eye, Pill, Baby, Zap, Clock, Star } from 'lucide-react';
 
-const CommunityAds: React.FC = () => {
+// Add interface for props
+interface CommunityAdsProps {
+  onAuthModal: (type: 'login' | 'register') => void;
+}
+
+const CommunityAds: React.FC<CommunityAdsProps> = ({ onAuthModal }) => {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
 
   const communityAds = [
@@ -84,6 +89,11 @@ const CommunityAds: React.FC = () => {
 
   const currentAd = communityAds[currentAdIndex];
 
+  // Function to handle join community button click
+  const handleJoinCommunity = () => {
+    onAuthModal('login');
+  };
+
   return (
     <div className="space-y-6">
       {/* Main Community Ad */}
@@ -163,10 +173,11 @@ const CommunityAds: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Updated to call handleJoinCommunity */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={handleJoinCommunity}
             className="w-full py-3 bg-medical-gradient text-white rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all duration-200"
           >
             <span>Join Community</span>
@@ -189,36 +200,6 @@ const CommunityAds: React.FC = () => {
           />
         ))}
       </div>
-
-      {/* Quick Community Stats */}
-      {/* <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="bg-white dark:bg-dark-card p-4 rounded-xl border border-gray-200 dark:border-dark-border shadow-sm"
-      > */}
-        {/* <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-center">
-          Community Highlights
-        </h4> */}
-        {/* <div className="grid grid-cols-2 gap-4 text-center">
-          <div className="p-2">
-            <div className="text-2xl font-bold text-medical-teal">50+</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Active Communities</div>
-          </div>
-          <div className="p-2">
-            <div className="text-2xl font-bold text-medical-blue">12K+</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Members</div>
-          </div>
-          <div className="p-2">
-            <div className="text-2xl font-bold text-medical-green">500+</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Expert Doctors</div>
-          </div>
-          <div className="p-2">
-            <div className="text-2xl font-bold text-purple-500">24/7</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Support</div>
-          </div>
-        </div> */}
-      {/* </motion.div> */}
 
       {/* Trending Questions */}
       <motion.div
