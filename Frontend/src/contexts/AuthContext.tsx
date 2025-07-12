@@ -62,7 +62,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
           // Fetch the full user profile from our backend
-          const { data } = await api.get('/auth/profile');
+          const { data } = await api.get('/api/auth/profile');
           const backendUser = data.user;
 
           // Populate user state with data from our MongoDB
