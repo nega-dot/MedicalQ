@@ -437,7 +437,7 @@ async function sendWelcomeEmail(email, isNewSubscriber = true) {
         <body>
             <div class="container">
                 <div class="header">
-                    <h1>🏥 MedicalQ</h1>
+                    <h1> MedicalQ</h1>
                     <h2>${isNewSubscriber ? 'Welcome to Our Newsletter!' : 'Welcome Back!'}</h2>
                 </div>
                 <div class="content">

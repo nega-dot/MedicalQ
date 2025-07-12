@@ -190,7 +190,6 @@ const Footer: React.FC = () => {
     { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000', label: 'Main Hospital' },
     { icon: Ambulance, text: '+91-11-6969-6969', href: 'tel:+911169696969', label: 'Emergency' },
     { icon: Mail, text: 'info@sgrh.com', href: 'mailto:info@sgrh.com', label: 'General Inquiries' },
-    { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: 'https://maps.google.com', label: 'Location' }
   ];
 
   const certifications = [
