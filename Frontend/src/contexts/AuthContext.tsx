@@ -115,7 +115,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsLoading(true);
     try {
       // 1. Register user with the backend. The backend will create the user in Firebase Auth and MongoDB.
-      await api.post('/auth/register', data);
+      await api.post('/api/auth/register', data);
       
       // 2. After successful registration, log the user in.
       await login(data.email, data.password);
@@ -130,7 +130,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsLoading(true);
     try {
       // Notify backend to revoke refresh tokens
-      await api.post('/auth/logout');
+      await api.post('/api/auth/logout');
     } catch (error) {
       console.error("Server logout failed, continuing with client-side logout.", error);
       // Don't block client logout if server call fails
