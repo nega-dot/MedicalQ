@@ -10,7 +10,7 @@ import Stats from './components/home/Stats';
 import SpecialistDoctors from './components/doctors/SpecialistDoctors';
 import CommunityPlatform from './components/community/CommunityPlatform';
 import CommunityAds from './components/community/CommunityAds';
-import Footer from './components/layout/Footer'; // Changed from './components/layout/Footer'
+import Footer from './components/layout/Footer';
 import AuthModal from './components/auth/AuthModal';
 import UserDashboard from './components/dashboard/UserDashboard';
 
