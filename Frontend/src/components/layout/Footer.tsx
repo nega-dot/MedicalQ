@@ -179,17 +179,17 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/sgrh', color: 'hover:text-blue-500' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/sgrh', color: 'hover:text-blue-400' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/sgrh', color: 'hover:text-pink-500' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/sgrh', color: 'hover:text-blue-600' },
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/sgrh', color: 'hover:text-red-500' }
+    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/medicalq', color: 'hover:text-blue-500' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/medicalq', color: 'hover:text-blue-400' },
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/medicalq', color: 'hover:text-pink-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/medicalq', color: 'hover:text-blue-600' },
+    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/medicalq', color: 'hover:text-red-500' }
   ];
 
   const contactInfo = [
     { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000', label: 'Main Hospital' },
     { icon: Ambulance, text: '+91-11-2575-1111', href: 'tel:+911125751111', label: 'Emergency' },
-    { icon: Mail, text: 'info@sgrh.com', href: 'mailto:info@sgrh.com', label: 'General Inquiries' },
+    { icon: Mail, text: 'info@medicalq.com', href: 'mailto:info@medicalq.com', label: 'General Inquiries' },
     { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: 'https://maps.google.com', label: 'Location' }
   ];
 

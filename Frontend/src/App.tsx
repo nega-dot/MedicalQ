@@ -62,15 +62,15 @@ const HomePage: React.FC = () => {
         {/* Community Platform */}
         <CommunityPlatform />
         
-        {/* Community Ads Sidebar - Fixed position for desktop - FIXED: Added onAuthModal prop */}
+        {/* Community Ads Sidebar - Fixed position for desktop */}
         <div className="fixed right-4 top-1/2 transform -translate-y-1/2 w-80 z-40 hidden xl:block">
-          <CommunityAds onAuthModal={handleAuthModal} />
+          <CommunityAds />
         </div>
         
-        {/* Mobile Community Ads - Show below community platform on mobile - FIXED: Added onAuthModal prop */}
+        {/* Mobile Community Ads - Show below community platform on mobile */}
         <div className="xl:hidden py-8">
           <div className="max-w-md mx-auto px-4">
-            <CommunityAds onAuthModal={handleAuthModal} />
+            <CommunityAds />
           </div>
         </div>
       </main>
