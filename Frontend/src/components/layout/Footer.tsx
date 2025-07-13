@@ -376,32 +376,45 @@ const Footer: React.FC = () => {
             
             <div className="lg:col-span-1 space-y-4 py-4">
               <form onSubmit={handleEmailSubscription}>
-                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-                  <input
-                    type="email"
-                    value={emailSubscription.email}
-                    onChange={(e) => setEmailSubscription(prev => ({ ...prev, email: e.target.value }))}
-                    placeholder="Enter your email"
-                    className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={emailSubscription.isLoading}
-                  />
-                  <motion.button
-                    type="submit"
-                    disabled={emailSubscription.isLoading}
-                    whileHover={{ scale: emailSubscription.isLoading ? 1 : 1.05 }}
-                    whileTap={{ scale: emailSubscription.isLoading ? 1 : 0.95 }}
-                    className="px-6 py-3 bg-medical-gradient text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
-                  >
-                    {emailSubscription.isLoading ? (
-                      <>
-                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        Subscribing...
-                      </>
-                    ) : (
-                      'Subscribe'
-                    )}
-                  </motion.button>
-                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0">
+  <input
+  type="email"
+  value={emailSubscription.email}
+  onChange={(e) =>
+    setEmailSubscription((prev) => ({
+      ...prev,
+      email: e.target.value,
+    }))
+  }
+  placeholder="Enter your email"
+  disabled={emailSubscription.isLoading}
+  style={{
+    width: "700px", 
+    minWidth: "unset",
+    maxWidth: "unset", 
+    flexGrow: 0,
+    flexShrink: 0,
+  }}
+  className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+/>
+  <motion.button
+    type="submit"
+    disabled={emailSubscription.isLoading}
+    whileHover={{ scale: emailSubscription.isLoading ? 1 : 1.05 }}
+    whileTap={{ scale: emailSubscription.isLoading ? 1 : 0.95 }}
+    className="flex-shrink-0 px-6 py-3 bg-medical-gradient text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
+  >
+    {emailSubscription.isLoading ? (
+      <>
+        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+        Subscribing...
+      </>
+    ) : (
+      'Subscribe'
+    )}
+  </motion.button>
+</div>
+
                 
                 {/* Success/Error Messages */}
                 {emailSubscription.message && (
