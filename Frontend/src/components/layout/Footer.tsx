@@ -365,7 +365,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <CheckCircle className="h-4 w-4 text-medical-teal" />
-                  <span>Hospital updates & announcements</span>
+                  <span>Updates & announcements</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <CheckCircle className="h-4 w-4 text-medical-teal" />
