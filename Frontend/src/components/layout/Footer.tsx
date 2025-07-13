@@ -377,26 +377,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-1 space-y-4 py-4">
               <form onSubmit={handleEmailSubscription}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0">
-  <input
-  type="email"
-  value={emailSubscription.email}
-  onChange={(e) =>
-    setEmailSubscription((prev) => ({
-      ...prev,
-      email: e.target.value,
-    }))
-  }
-  placeholder="Enter your email"
-  disabled={emailSubscription.isLoading}
-  style={{
-    width: "700px", 
-    minWidth: "unset",
-    maxWidth: "unset", 
-    flexGrow: 0,
-    flexShrink: 0,
-  }}
-  className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-/>
+ 
   <motion.button
     type="submit"
     disabled={emailSubscription.isLoading}
