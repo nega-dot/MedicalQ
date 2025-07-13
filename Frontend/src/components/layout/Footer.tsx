@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Heart, 
@@ -28,11 +28,109 @@ import {
   // Search,
   MessageSquare,
   TrendingUp,
-  Languages
+  Languages,
+  Loader2,
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+   const [emailSubscription, setEmailSubscription] = useState({
+    email: '',
+    isLoading: false,
+    message: '',
+    isSuccess: false,
+    isError: false
+  });
+
+  const handleEmailSubscription = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!emailSubscription.email) {
+      setEmailSubscription(prev => ({
+        ...prev,
+        message: 'Please enter your email address',
+        isError: true,
+        isSuccess: false
+      }));
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailSubscription.email)) {
+      setEmailSubscription(prev => ({
+        ...prev,
+        message: 'Please enter a valid email address',
+        isError: true,
+        isSuccess: false
+      }));
+      return;
+    }
+
+    setEmailSubscription(prev => ({
+      ...prev,
+      isLoading: true,
+      message: '',
+      isError: false,
+      isSuccess: false
+    }));
+
+    try {
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+      const response = await fetch(`${API_BASE_URL}/api/newsletter/subscribe`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailSubscription.email
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setEmailSubscription(prev => ({
+          ...prev,
+          message: data.message,
+          isSuccess: true,
+          isError: false,
+          email: '' // Clear the email field
+        }));
+      } else {
+        setEmailSubscription(prev => ({
+          ...prev,
+          message: data.message,
+          isError: true,
+          isSuccess: false
+        }));
+      }
+    } catch (error) {
+      setEmailSubscription(prev => ({
+        ...prev,
+        message: 'An error occurred. Please try again later.',
+        isError: true,
+        isSuccess: false
+      }));
+    } finally {
+      setEmailSubscription(prev => ({
+        ...prev,
+        isLoading: false
+      }));
+    }
+
+    // Clear message after 5 seconds
+    setTimeout(() => {
+      setEmailSubscription(prev => ({
+        ...prev,
+        message: '',
+        isError: false,
+        isSuccess: false
+      }));
+    }, 5000);
+  };
 
   const footerSections = [
     {
@@ -260,20 +358,72 @@ const Footer: React.FC = () => {
                 Subscribe to our newsletter for health tips, medical updates, and hospital news.
               </p>
             </div>
-            <div className="flex space-x-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-medical-gradient text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200"
-              >
-                Subscribe
-              </motion.button>
+            <div className="space-y-4">
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                  <CheckCircle className="h-4 w-4 text-medical-teal" />
+                  <span>Latest health research & tips</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                  <CheckCircle className="h-4 w-4 text-medical-teal" />
+                  <span>Hospital updates & announcements</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                  <CheckCircle className="h-4 w-4 text-medical-teal" />
+                  <span>Expert medical insights</span>
+                </div>
+              </div>
             </div>
+            
+            <div className="lg:col-span-1 space-y-4 py-4">
+              <form onSubmit={handleEmailSubscription}>
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                  <input
+                    type="email"
+                    value={emailSubscription.email}
+                    onChange={(e) => setEmailSubscription(prev => ({ ...prev, email: e.target.value }))}
+                    placeholder="Enter your email"
+                    className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={emailSubscription.isLoading}
+                  />
+                  <motion.button
+                    type="submit"
+                    disabled={emailSubscription.isLoading}
+                    whileHover={{ scale: emailSubscription.isLoading ? 1 : 1.05 }}
+                    whileTap={{ scale: emailSubscription.isLoading ? 1 : 0.95 }}
+                    className="px-6 py-3 bg-medical-gradient text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
+                  >
+                    {emailSubscription.isLoading ? (
+                      <>
+                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                        Subscribing...
+                      </>
+                    ) : (
+                      'Subscribe'
+                    )}
+                  </motion.button>
+                </div>
+                
+                {/* Success/Error Messages */}
+                {emailSubscription.message && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`flex items-center space-x-2 p-3 rounded-lg text-sm ${
+                      emailSubscription.isSuccess 
+                        ? 'bg-green-900/20 border border-green-800/30 text-green-400' 
+                        : 'bg-red-900/20 border border-red-800/30 text-red-400'
+                    }`}
+                  >
+                    {emailSubscription.isSuccess ? (
+                      <CheckCircle className="h-4 w-4" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4" />
+                    )}
+                    <span>{emailSubscription.message}</span>
+                  </motion.div>
+                )}
+              </form>
             <div>
               <h4 className="text-sm font-semibold mb-2 flex items-center">
                 <Languages className="h-4 w-4 mr-2 text-medical-teal" />
