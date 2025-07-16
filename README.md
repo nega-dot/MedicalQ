@@ -1086,7 +1086,12 @@ If you have any questions or need help with the project:
 
 <div align="center">
   <h3>🌟 Star this repository if you found it helpful!</h3>
-  <p>Made with ❤️ by <a href="https://github.com/abhinav-phi">Abhinav and Aryan</a></p>
+  <p>
+    Made with ❤️ by
+    <a href="https://github.com/abhinav-phi">Abhinav </a> ,
+    <a href="https://github.com/AryanManu544">Aryan </a> and
+    <a href="https://github.com/debugaditya">Aditya </a>
+  </p>
 </div>
 
 ---
