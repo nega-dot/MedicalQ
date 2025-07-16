@@ -250,19 +250,19 @@ flowchart TD
     Controllers -->|"Reads/Writes"| FirestoreDB
 
     GitHub -->|"CI/CD"| Vercel
-    GitHub -->|"CI/CD"| Heroku
+    GitHub -->|"CI/CD"| Render
     Vercel -->|"Deploys"| AuthPages
     Vercel -->|"Deploys"| HomePages
     Vercel -->|"Deploys"| Dashboard
     Vercel -->|"Deploys"| Doctors
     Vercel -->|"Deploys"| Community
-    Heroku -->|"Deploys"| AuthRoutes
-    Heroku -->|"Deploys"| Controllers
-    Heroku -->|"Deploys"| Middlewares
-    Heroku -->|"Deploys"| Config
-    Heroku -->|"Deploys"| Models
-    Heroku -->|"Deploys"| Utils
-    Heroku -->|"Deploys"| Bootstrap
+    Render -->|"Deploys"| AuthRoutes
+    Render -->|"Deploys"| Controllers
+    Render -->|"Deploys"| Middlewares
+    Render -->|"Deploys"| Config
+    Render -->|"Deploys"| Models
+    Render -->|"Deploys"| Utils
+    Render -->|"Deploys"| Bootstrap
 
     %% Styles
     classDef frontend fill:#D0E8FF,stroke:#0066CC,color:#000
