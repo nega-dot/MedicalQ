@@ -30,11 +30,11 @@
 
 ### 🎯 Key Problems Solved
 
-- ** Healthcare Accessibility**: 24/7 access to medical professionals, especially for remote and underserved areas
-- ** Medical Information Reliability**: Verified doctors providing trustworthy, evidence-based medical advice
-- ** Community Support**: Peer-to-peer health discussions and support networks
-- ** Streamlined Healthcare**: Efficient appointment management and consultation tracking
-- ** Cost-Effective Care**: Reducing healthcare costs through telemedicine solutions
+- **Healthcare Accessibility**: 24/7 access to medical professionals, especially for remote and underserved areas
+- **Medical Information Reliability**: Verified doctors providing trustworthy, evidence-based medical advice
+- **Community Support**: Peer-to-peer health discussions and support networks
+- **Streamlined Healthcare**: Efficient appointment management and consultation tracking
+- **Cost-Effective Care**: Reducing healthcare costs through telemedicine solutions
 
 ---
 
@@ -87,27 +87,27 @@
 ## 🛠️ Technology Stack
 
 ### **Frontend**
-- ** Framework**: React 18+ with TypeScript 5.0+
-- ** Styling**: Tailwind CSS 3.0+
-- ** State Management**: React Context API with custom hooks
-- ** Build Tool**: Vite 5.0+
-- ** Authentication**: Firebase Auth v10
-- ** Deployment**: Vercel with automatic deployments
+- **Framework**: React 18+ with TypeScript 5.0+
+- **Styling**: Tailwind CSS 3.0+
+- **State Management**: React Context API with custom hooks
+- **Build Tool**: Vite 5.0+
+- **Authentication**: Firebase Auth v10
+- **Deployment**: Vercel with automatic deployments
 
 ### **Backend**
-- ** Runtime**: Node.js 20+
-- ** Framework**: Express.js 4.18+
-- ** Database**: Firebase Firestore
-- ** Authentication**: JWT + Firebase Auth
-- ** Security**: Custom middleware with rate limiting
-- ** Logging**: Winston logger with structured logging
+- **Runtime**: Node.js 20+
+- **Framework**: Express.js 4.18+
+- **Database**: Firebase Firestore
+- **Authentication**: JWT + Firebase Auth
+- **Security**: Custom middleware with rate limiting
+- **Logging**: Winston logger with structured logging
 
 ### **DevOps & Development**
-- ** Version Control**: Git with GitHub Actions
-- ** Code Quality**: ESLint, Prettier, TypeScript strict mode
-- ** Package Manager**: npm with workspaces
-- ** Testing**: Jest for unit tests, Cypress for E2E
-- ** Environment**: Multiple environment configurations
+- **Version Control**: Git with GitHub Actions
+- **Code Quality**: ESLint, Prettier, TypeScript strict mode
+- **Package Manager**: npm with workspaces
+- **Testing**: Jest for unit tests, Cypress for E2E
+- **Environment**: Multiple environment configurations
 
 ---
 
