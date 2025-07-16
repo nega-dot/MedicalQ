@@ -183,7 +183,96 @@ MedicalQ/
 ├── 📄 .gitignore                 # Git ignore rules
 └── 📄 LICENSE                    # MIT License
 ```
+---
+## 📊Project Diagram
 
+```mermaid
+flowchart TD
+    %% Users
+    User["User<br/>(Patient/Doctor/Admin)"]:::user
+
+    %% Frontend Layer
+    subgraph "Frontend (Vite + React + Tailwind)" 
+        direction TB
+        AuthPages["Auth Pages"]:::frontend
+        HomePages["Home Pages"]:::frontend
+        Dashboard["Dashboard"]:::frontend
+        Doctors["Doctors"]:::frontend
+        Community["Community"]:::frontend
+        Layout["Layout<br/>(Header/Footer)"]:::frontend
+        GlobalState["Global State<br/>(AuthContext, ThemeContext)"]:::frontend
+        Configs["Configs<br/>(API, Firebase SDK)"]:::frontend
+        Entry["Entry & Build Config"]:::frontend
+    end
+
+    %% Backend Layer
+    subgraph "Backend (Node.js + Express)" 
+        direction TB
+        AuthRoutes["authRoutes.js"]:::backend
+        Controllers["Controllers"]:::backend
+        Middlewares["Middlewares"]:::backend
+        Config["Firebase Config"]:::backend
+        Models["Models"]:::backend
+        Utils["Logger (Winston)"]:::backend
+        Bootstrap["app.js / server.js"]:::backend
+    end
+
+    %% Auth & Database
+    FirebaseAuth["Firebase Auth"]:::auth
+    FirestoreDB["Firestore<br/>(NoSQL Document DB)"]:::db
+
+    %% Deployment
+    GitHub["GitHub"]:::deploy
+    Vercel["Vercel<br/>(Frontend)"]:::deploy
+    Heroku["Heroku/Railway/DigitalOcean<br/>(Backend)"]:::deploy
+
+    %% Connections
+    User -->|"Interacts with"| AuthPages
+    User -->|"Interacts with"| HomePages
+    User -->|"Interacts with"| Dashboard
+    User -->|"Interacts with"| Doctors
+    User -->|"Interacts with"| Community
+
+    AuthPages -->|"REST API (HTTPS, JWT)"| AuthRoutes
+    HomePages -->|"REST API (HTTPS, JWT)"| Controllers
+    Dashboard -->|"REST API (HTTPS, JWT)"| Controllers
+    Doctors -->|"REST API (HTTPS, JWT)"| Controllers
+    Community -->|"REST API (HTTPS, JWT)"| Controllers
+
+    AuthPages -.->|"Firebase Auth SDK"| FirebaseAuth
+    HomePages -.->|"Firebase Auth SDK"| FirebaseAuth
+
+    Controllers -->|"Uses"| Middlewares
+    Controllers -->|"Uses"| Config
+    Controllers -->|"Uses"| Models
+    Controllers -->|"Logs to"| Utils
+    Middlewares -->|"Verifies Token"| FirebaseAuth
+    Controllers -->|"Reads/Writes"| FirestoreDB
+
+    GitHub -->|"CI/CD"| Vercel
+    GitHub -->|"CI/CD"| Heroku
+    Vercel -->|"Deploys"| AuthPages
+    Vercel -->|"Deploys"| HomePages
+    Vercel -->|"Deploys"| Dashboard
+    Vercel -->|"Deploys"| Doctors
+    Vercel -->|"Deploys"| Community
+    Heroku -->|"Deploys"| AuthRoutes
+    Heroku -->|"Deploys"| Controllers
+    Heroku -->|"Deploys"| Middlewares
+    Heroku -->|"Deploys"| Config
+    Heroku -->|"Deploys"| Models
+    Heroku -->|"Deploys"| Utils
+    Heroku -->|"Deploys"| Bootstrap
+
+    %% Styles
+    classDef frontend fill:#D0E8FF,stroke:#0066CC,color:#000
+    classDef backend fill:#DFF2D8,stroke:#228B22,color:#000
+    classDef db fill:#FFE5B4,stroke:#FF8C00,color:#000
+    classDef auth fill:#FFF4C1,stroke:#DAA520,color:#000
+    classDef deploy fill:#E8E8E8,stroke:#808080,color:#000
+    classDef user fill:#F0F0F0,stroke:#A9A9A9,color:#000,stroke-dasharray: 5 5
+
+```
 ---
 
 ## 🚀 Quick Start
