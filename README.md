@@ -224,7 +224,7 @@ flowchart TD
     %% Deployment
     GitHub["GitHub"]:::deploy
     Vercel["Vercel<br/>(Frontend)"]:::deploy
-    Heroku["Heroku/Railway/DigitalOcean<br/>(Backend)"]:::deploy
+    Render["Render<br/>(Backend)"]:::deploy
 
     %% Connections
     User -->|"Interacts with"| AuthPages
