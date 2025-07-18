@@ -4,6 +4,7 @@ import { X, Eye, EyeOff, Mail, Lock, User, Stethoscope, Shield, FileText, Award 
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../contexts/AuthContext';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -61,6 +62,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialTab }) =>
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { login, register, isLoading } = useAuth();
+  const { t } = useTranslation();
 
   const loginForm = useForm<LoginForm>();
 
@@ -156,8 +158,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialTab }) =>
             </div>
             {/* Tab Switcher */}
             <div className="flex bg-dark-card rounded-lg p-1">
-              <button onClick={() => setCurrentTab('login')} className={`flex-1 py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 ${currentTab === 'login' ? 'bg-medical-teal text-white shadow-lg' : 'text-gray-400 hover:text-white'}`}>Sign In</button>
-              <button onClick={() => setCurrentTab('register')} className={`flex-1 py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 ${currentTab === 'register' ? 'bg-medical-teal text-white shadow-lg' : 'text-gray-400 hover:text-white'}`}>Sign Up</button>
+              <h2 className="text-xl font-bold text-white">{currentTab === 'login' ? t('auth.welcomeBack') : t('auth.joinMedicalQ')}</h2>
+              <p className="text-sm text-gray-400">{currentTab === 'login' ? t('auth.signInToAccount') : t('auth.createAccount')}</p>
             </div>
           </div>
 
@@ -170,24 +172,24 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialTab }) =>
                   
                   {/* Email */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t('auth.email')}</label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                       <input type="email" {...loginForm.register('email', { required: 'Email is required' })}
                         className="w-full pl-10 pr-4 py-3 bg-dark-card border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent transition-all duration-200"
-                        placeholder="Enter your email" />
+                        placeholder={t('auth.enterEmail')} />
                     </div>
                     {loginForm.formState.errors.email && <p className="text-red-400 text-sm mt-1">{loginForm.formState.errors.email.message}</p>}
                   </div>
 
                   {/* Password */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t('auth.password')}</label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                       <input type={showPassword ? 'text' : 'password'} {...loginForm.register('password', { required: 'Password is required' })}
                         className="w-full pl-10 pr-12 py-3 bg-dark-card border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent transition-all duration-200"
-                        placeholder="Enter your password" />
+                        placeholder={t('auth.enterPassword')} />
                       <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
                         {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                       </button>
@@ -197,7 +199,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialTab }) =>
 
                   <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" disabled={isLoading}
                     className="w-full py-3 bg-medical-gradient text-white rounded-lg font-medium hover:shadow-lg hover:shadow-medical-teal/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-                    {isLoading ? <div className="flex items-center justify-center"><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />Signing in...</div> : 'Sign In'}
+                    {isLoading ? <div className="flex items-center justify-center"><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />{t('auth.signingIn')}</div> : t('auth.signIn')}
                   </motion.button>
                 </motion.form>
               ) : (
@@ -206,7 +208,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialTab }) =>
                   
                   {/* Role Selection */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">I am a</label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t('auth.iAmA')}</label>
                     <div className="grid grid-cols-1 gap-2">
                       {roleOptions.map((option) => (
                         <label key={option.value} className={`relative flex items-start p-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${registerForm.watch('role') === option.value ? 'border-medical-teal bg-medical-teal/10' : 'border-dark-border hover:border-dark-card'}`}>
@@ -242,11 +244,11 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialTab }) =>
 
                   <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" disabled={isLoading}
                     className="w-full py-3 bg-medical-gradient text-white rounded-lg font-medium hover:shadow-lg hover:shadow-medical-teal/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-                    {isLoading ? <div className="flex items-center justify-center"><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />Creating account...</div> : 'Create Account'}
+                    {isLoading ? <div className="flex items-center justify-center"><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />{t('auth.creatingAccount')}</div> : t('auth.createAccount')}
                   </motion.button>
                 </motion.form>
-              )}
-            </AnimatePresence>
+            <button onClick={() => setCurrentTab('login')} className={`flex-1 py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 ${currentTab === 'login' ? 'bg-medical-teal text-white shadow-lg' : 'text-gray-400 hover:text-white'}`}>{t('auth.signIn')}</button>
+            <button onClick={() => setCurrentTab('register')} className={`flex-1 py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 ${currentTab === 'register' ? 'bg-medical-teal text-white shadow-lg' : 'text-gray-400 hover:text-white'}`}>{t('auth.signUp')}</button>
           </div>
         </motion.div>
       </motion.div>
