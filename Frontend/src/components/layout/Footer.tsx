@@ -191,10 +191,8 @@ const Footer: React.FC = () => {
   ];
 
   const contactInfo = [
-    // { icon: Phone, text: '+91-11-2575-0000', href: 'tel:+911125750000', label: 'Main' },
     { icon: Ambulance, text: '+91-11-6969-6969', href: 'tel:+911169696969', label: 'Emergency' },
     { icon: Mail, text: 'info@medicalq.com', href: 'mailto:info@medicalq.com', label: 'General Inquiries' },
-    // { icon: MapPin, text: 'Rajinder Nagar, New Delhi - 110060', href: 'https://maps.google.com', label: 'Location' }
   ];
 
   const certifications = [
@@ -380,7 +378,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-1 space-y-4 py-4">
               <form onSubmit={handleEmailSubscription}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0">
-  <input
+ <input
   type="email"
   value={emailSubscription.email}
   onChange={(e) =>
@@ -389,7 +387,6 @@ const Footer: React.FC = () => {
       email: e.target.value,
     }))
   }
-  placeholder="Enter your email"
   disabled={emailSubscription.isLoading}
   style={{
     width: "700px", 
@@ -398,9 +395,10 @@ const Footer: React.FC = () => {
     flexGrow: 0,
     flexShrink: 0,
   }}
-                  className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder={t('footer.enterEmail')}
+  className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-medical-teal focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+  placeholder={t('footer.enterEmail')}
 />
+
   <motion.button
     type="submit"
     disabled={emailSubscription.isLoading}
@@ -496,24 +494,7 @@ const Footer: React.FC = () => {
                   <a href="/accessibility" className="hover:text-medical-teal transition-colors">Accessibility</a>
                 </div>
               </div>
-            </div>
-
-
-            {/* <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <div className="flex items-center space-x-2">
-                <Award className="h-4 w-4 text-medical-teal" />
-                <span>NABH Accredited</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="h-4 w-4 text-medical-teal" />
-                <span>ISO Certified</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Globe className="h-4 w-4 text-medical-teal" />
-                <span>HIPAA & GDPR Compliant</span>
-              </div>
-            </div>  */}
-            
+            </div>            
           </div>
           
           {/* Emergency Notice */}
